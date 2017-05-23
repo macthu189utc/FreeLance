@@ -12,8 +12,11 @@ using System.Windows.Forms;
 
 namespace BookStore {
     public partial class frmMain : Form {
+        public int ROLE { get; set; }
+
         public frmMain() {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void mnProduct_Click(object sender, EventArgs e) {
@@ -64,6 +67,12 @@ namespace BookStore {
         private void mnBillOrderIn_Click(object sender, EventArgs e) {
             frmBillOrderIn fbi = new frmBillOrderIn();
             fbi.ShowDialog();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e) {
+            if (ROLE == 2) {
+                mnManager.Enabled = false;
+            }
         }
     }
 }

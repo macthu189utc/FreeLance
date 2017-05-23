@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,16 +44,16 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnRegister
+            // btnLogin
             // 
-            this.btnRegister.Location = new System.Drawing.Point(70, 215);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(112, 37);
-            this.btnRegister.TabIndex = 16;
-            this.btnRegister.Text = "Đăng nhập";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnLogin.Location = new System.Drawing.Point(70, 215);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(112, 37);
+            this.btnLogin.TabIndex = 16;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
@@ -124,7 +124,7 @@
             this.Controls.Add(this.lbError);
             this.Controls.Add(this.llbRegister);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.label2);
@@ -141,7 +141,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtAccount;
         private System.Windows.Forms.Label label2;

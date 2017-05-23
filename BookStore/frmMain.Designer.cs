@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnManager = new System.Windows.Forms.ToolStripMenuItem();
             this.mnProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnPublisher = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +69,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quảnLýToolStripMenuItem,
+            this.mnManager,
             this.bánHàngToolStripMenuItem,
             this.mnHelp,
             this.mnLogout});
@@ -79,50 +79,50 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // quảnLýToolStripMenuItem
+            // mnManager
             // 
-            this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnManager.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnProduct,
             this.mnCategory,
             this.mnPublisher,
             this.mnStaff,
             this.mnProvider});
-            this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.quảnLýToolStripMenuItem.Text = "Quản lý";
+            this.mnManager.Name = "mnManager";
+            this.mnManager.Size = new System.Drawing.Size(60, 20);
+            this.mnManager.Text = "Quản lý";
             // 
             // mnProduct
             // 
             this.mnProduct.Name = "mnProduct";
-            this.mnProduct.Size = new System.Drawing.Size(148, 22);
+            this.mnProduct.Size = new System.Drawing.Size(152, 22);
             this.mnProduct.Text = "Sản phẩm";
             this.mnProduct.Click += new System.EventHandler(this.mnProduct_Click);
             // 
             // mnCategory
             // 
             this.mnCategory.Name = "mnCategory";
-            this.mnCategory.Size = new System.Drawing.Size(148, 22);
+            this.mnCategory.Size = new System.Drawing.Size(152, 22);
             this.mnCategory.Text = "Danh mục";
             this.mnCategory.Click += new System.EventHandler(this.mnCategory_Click);
             // 
             // mnPublisher
             // 
             this.mnPublisher.Name = "mnPublisher";
-            this.mnPublisher.Size = new System.Drawing.Size(148, 22);
+            this.mnPublisher.Size = new System.Drawing.Size(152, 22);
             this.mnPublisher.Text = "Nhà xuất bản";
             this.mnPublisher.Click += new System.EventHandler(this.mnPublisher_Click);
             // 
             // mnStaff
             // 
             this.mnStaff.Name = "mnStaff";
-            this.mnStaff.Size = new System.Drawing.Size(148, 22);
+            this.mnStaff.Size = new System.Drawing.Size(152, 22);
             this.mnStaff.Text = "Nhân viên";
             this.mnStaff.Click += new System.EventHandler(this.mnStaff_Click);
             // 
             // mnProvider
             // 
             this.mnProvider.Name = "mnProvider";
-            this.mnProvider.Size = new System.Drawing.Size(148, 22);
+            this.mnProvider.Size = new System.Drawing.Size(152, 22);
             this.mnProvider.Text = "Nhà cung cấp";
             this.mnProvider.Click += new System.EventHandler(this.mnProvider_Click);
             // 
@@ -139,21 +139,21 @@
             // mnCustomer
             // 
             this.mnCustomer.Name = "mnCustomer";
-            this.mnCustomer.Size = new System.Drawing.Size(152, 22);
+            this.mnCustomer.Size = new System.Drawing.Size(150, 22);
             this.mnCustomer.Text = "Khách hàng";
             this.mnCustomer.Click += new System.EventHandler(this.mnCustomer_Click);
             // 
             // mnBillOrderOut
             // 
             this.mnBillOrderOut.Name = "mnBillOrderOut";
-            this.mnBillOrderOut.Size = new System.Drawing.Size(152, 22);
+            this.mnBillOrderOut.Size = new System.Drawing.Size(150, 22);
             this.mnBillOrderOut.Text = "Hoá đơn bán";
             this.mnBillOrderOut.Click += new System.EventHandler(this.mnBill_Click);
             // 
             // mnBillOrderIn
             // 
             this.mnBillOrderIn.Name = "mnBillOrderIn";
-            this.mnBillOrderIn.Size = new System.Drawing.Size(152, 22);
+            this.mnBillOrderIn.Size = new System.Drawing.Size(150, 22);
             this.mnBillOrderIn.Text = "Hoá đơn nhập";
             this.mnBillOrderIn.Click += new System.EventHandler(this.mnBillOrderIn_Click);
             // 
@@ -327,6 +327,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmMain";
             this.Text = "Hệ thống quản lý cửa hàng bán sách";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -344,7 +345,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnManager;
         private System.Windows.Forms.ToolStripMenuItem mnProduct;
         private System.Windows.Forms.ToolStripMenuItem mnCategory;
         private System.Windows.Forms.ToolStripMenuItem mnPublisher;

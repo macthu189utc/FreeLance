@@ -166,10 +166,10 @@ namespace BookStore.Admin {
                 txtPass.Enabled = true;
                 btnSaveEdit.Enabled = true;
 
-                if(status == 1) {
+                if (status == 1) {
                     cbbStatus.Text = "Đang làm";
                 }
-                if(status == 2) {
+                if (status == 2) {
                     cbbStatus.Text = "Nghỉ làm";
                 }
 
@@ -224,11 +224,14 @@ namespace BookStore.Admin {
 
         //Delete
         private void btnDelete_Click(object sender, EventArgs e) {
+            //Lấy ra id muốn xoá
             string id = dgvData.Rows[dgvData.SelectedRows[0].Index].Cells[0].Value.ToString();
 
+            //Lấy ra số bản ghi liên quan đến nhân viên có id vừa lấy
             string numRecordBillIn = "SELECT count(*) FROM HOADONNHAP WHERE MANHANVIEN = '" + id + "'";
             string numRecordBillOut = "SELECT count(*) FROM HOADONXUAT WHERE MANHANVIEN = '" + id + "'";
 
+            //Đếm bản ghi
             int numBillIn = db.CountRecord(numRecordBillOut);
             int numBillOut = db.CountRecord(numRecordBillIn);
 

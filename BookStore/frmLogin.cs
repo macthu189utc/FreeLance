@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStore.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,8 @@ using System.Windows.Forms;
 
 namespace BookStore {
     public partial class frmLogin : Form {
+
+        DBConnect db = new DBConnect();
         public frmLogin() {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -22,12 +25,50 @@ namespace BookStore {
             this.Show();
         }
 
-        private void btnRegister_Click(object sender, EventArgs e) {
-
-        }
-
         private void btnExit_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e) {
+            string acc = txtAccount.Text.Trim().Replace("-", "");
+            string pass = txtPassword.Text;
+
+            if (acc == "") {
+                lbError.Text = "Vui lòng nhập vào tên tài khoản";
+                lbError.Visible = true;
+                return;
+            }
+            if (pass == "") {
+                lbError.Text = "Vui lòng nhập vào mật khẩu";
+                lbError.Visible = true;
+                return;
+            }
+            string strSQL = string.Format("SELECT * FROM NHANVIEN " +
+                                          "where TENTAIKHOAN = '{0}' and MATKHAU = '{1}'", acc, pass);
+            DataTable data = db.GetData(strSQL);
+            //int a = 3;
+            int a = data.Rows.Count;
+            if (a == 0) {
+                lbError.Text = "Sai tên đăng nhập";
+                lbError.Visible = true;
+                return;
+            }
+            else {
+                long state = long.Parse(data.Rows[0]["TRANGTHAI"].ToString());
+                if (state == 0) {
+                    lbError.Text = "Tài khoản đã bị khóa";
+                    lbError.Visible = true;
+                    return;
+                }
+
+                lbError.Visible = false;
+                this.Hide();
+                int role = int.Parse(data.Rows[0]["MABOPHAN"].ToString());
+                frmMain fMain = new frmMain();
+                fMain.ROLE = role;
+                fMain.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

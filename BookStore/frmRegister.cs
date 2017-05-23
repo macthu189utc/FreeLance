@@ -35,14 +35,48 @@ namespace BookStore {
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
-            if (txtAccount.Text == "" || txtPassword.Text == "") {
-                MessageBox.Show("Bạn chưa nhập đầy đủ thông tin", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string acc = txtAccount.Text.Trim().Replace("-", "");
+            string pass = txtPassword.Text;
+            long bp = long.Parse(cbbDepartment.SelectedValue.ToString());
+
+            // Kiểm tra các trường bỏ trống
+            if (acc == "") {
+                MessageBox.Show("Vui lòng nhập vào tên tài khoản");
                 return;
             }
-            
-            
+            if (pass == "") {
+                MessageBox.Show("Vui lòng nhập vào mật khẩu");
+                return;
+            }
 
-            this.Close();
+            // Kiểm tra tên tài khoản, mật khẩu đã tồn tại
+            string strSQL1 = string.Format("SELECT * FROM NHANVIEN " +
+                                          "where TENTAIKHOAN = '{0}'", acc);
+            DataTable data = db.GetData(strSQL1);
+            int a = data.Rows.Count;
+            if (a > 0) {
+                MessageBox.Show("Tài khoản đã tồn tại");
+                return;
+            }
+
+            // Đăng kí tài khoản
+            try {
+                string strSQL =
+                        string.Format(
+                            "INSERT INTO NHANVIEN " +
+                            "(TENNHANVIEN, SODIENTHOAI, EMAIL, " +
+                            " DIACHI, MABOPHAN, TRANGTHAI, TENTAIKHOAN, MATKHAU) " +
+                            "VALUES('{0}', '{1}', '{2}', '{3}', {4}, {5}, '{6}', '{7}')",
+                            acc, "0", "-", "-", bp, 1, acc, pass);
+
+                db.UpdataData(strSQL);
+                MessageBox.Show("Bạn đã đăng ký thành công. Vui lòng đăng nhập.");
+                this.Close();
+            }
+            catch (Exception) {
+                MessageBox.Show("Không thể đăng ký tài khoản này!");
+                throw;
+            }
         }
     }
 }
