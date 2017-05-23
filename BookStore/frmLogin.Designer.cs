@@ -108,7 +108,7 @@
             this.lbError.AutoSize = true;
             this.lbError.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbError.ForeColor = System.Drawing.Color.Red;
-            this.lbError.Location = new System.Drawing.Point(76, 18);
+            this.lbError.Location = new System.Drawing.Point(148, 18);
             this.lbError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbError.Name = "lbError";
             this.lbError.Size = new System.Drawing.Size(265, 19);

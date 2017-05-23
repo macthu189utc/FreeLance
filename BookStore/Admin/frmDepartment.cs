@@ -10,11 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BookStore.Admin {
-    public partial class frmCategory : Form {
-
+    public partial class frmDepartment : Form {
         DBConnect db = new DBConnect();
 
-        public frmCategory() {
+        public frmDepartment() {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             myTable = new DataTable();
@@ -24,14 +23,16 @@ namespace BookStore.Admin {
         //Attribute
         private DataTable myTable;
         private BindingSource myBindS;
-        private string[] headerText = { "Mã danh mục", "Tên danh mục"};
-        private int[] size = { 40, 65 };
+        private string[] headerText = { "Mã bộ phận", "Tên bộ phận", "Lương" };
+        private int[] size = { 20, 50, 30 };
 
 
         //Method
         public void Empty() {
             txtName.Text = "";
             txtName.Enabled = false;
+            txtSalary.Text = "";
+            txtSalary.Enabled = false;
             txtID.Text = "";
             btnAdd.Enabled = true;
             btnEdit.Enabled = true;
@@ -43,6 +44,7 @@ namespace BookStore.Admin {
 
         public void Enable() {
             txtName.Enabled = true;
+            txtSalary.Enabled = true;
             btnCancel.Enabled = true;
         }
 
@@ -51,9 +53,9 @@ namespace BookStore.Admin {
             this.Close();
         }
 
-        private void frmCategory_Load(object sender, EventArgs e) {
+        private void frmDepartment_Load(object sender, EventArgs e) {
             // Lấy dữ liệu từ CSDL
-            string strCL = "SELECT * FROM DANHMUC";
+            string strCL = "SELECT * FROM BOPHAN";
             myTable = db.GetData(strCL);
 
             // Gán dl bảng vào binding, binding gán vào dgv
@@ -83,12 +85,13 @@ namespace BookStore.Admin {
                 return;
             }
             string name = txtName.Text;
+            string salary = txtSalary.Text;
 
-            string sql = string.Format("INSERT INTO DANHMUC VALUES (N'{0}')", name);
+            string sql = string.Format("INSERT INTO BOPHAN VALUES (N'{0}', '{1}')", name, salary);
             db.UpdataData(sql);
 
             MessageBox.Show("Thêm mới thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            frmCategory_Load(null, null);
+            frmDepartment_Load(null, null);
             Empty();
         }
 
@@ -100,6 +103,7 @@ namespace BookStore.Admin {
                 // Lấy ra các giá trị hàng đang chọn
                 string id = dgvData.Rows[choose].Cells[0].Value.ToString();
                 string name = dgvData.Rows[choose].Cells[1].Value.ToString();
+                string salary = dgvData.Rows[choose].Cells[2].Value.ToString();
 
                 //Đưa dữ liệu đã lấy ra vào TextBox
                 Enable();
@@ -109,25 +113,27 @@ namespace BookStore.Admin {
 
                 txtID.Text = id;
                 txtName.Text = name;
+                txtSalary.Text = salary;
             }
             catch (Exception) {
-                MessageBox.Show("Bạn phải chọn danh mục muốn sửa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải chọn bộ phận muốn sửa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnSaveEdit_Click(object sender, EventArgs e) {
-            if (txtName.Text == "") {
+            if (txtName.Text == "" || txtSalary.Text == "") {
                 MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             int id = int.Parse(txtID.Text);
             string name = txtName.Text;
+            string salary = txtSalary.Text;
 
-            string strSQL = string.Format("UPDATE DANHMUC SET TENDANHMUC = N'{0}' WHERE MADANHMUC = '{1}'",
-                name, id);
+            string strSQL = string.Format("UPDATE BOPHAN SET TENBOPHAN = N'{0}', LUONG = '{1}' WHERE MABOPHAN = '{2}'",
+                name, salary, id);
             db.UpdataData(strSQL);
-            MessageBox.Show("Sửa thành công danh mục có mã là " + id, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            frmCategory_Load(null, null);
+            MessageBox.Show("Sửa thành công bộ phận có mã là " + id, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmDepartment_Load(null, null);
             Empty();
         }
 
@@ -136,22 +142,22 @@ namespace BookStore.Admin {
             string id = dgvData.Rows[dgvData.SelectedRows[0].Index].Cells[0].Value.ToString();
 
             //Lấy ra số bản ghi liên quan đến nhân viên có id vừa lấy
-            string numRecorBook = "SELECT count(*) FROM SACH WHERE MADANHMUC = '" + id + "'";
+            string numRecorStaff = "SELECT count(*) FROM NHANVIEN WHERE MABOPHAN = '" + id + "'";
 
             //Đếm bản ghi
-            int numBook = db.CountRecord(numRecorBook);
+            int numStaff = db.CountRecord(numRecorStaff);
 
-            DialogResult kq = MessageBox.Show("Có " + (numBook) + " dữ liệu liên quan đến danh mục có " + id + " này! \nBạn có muốn xóa không?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult kq = MessageBox.Show("Có " + (numStaff) + " dữ liệu liên quan đến bộ phận có " + id + " này! \nBạn có muốn xóa không?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (kq == DialogResult.Yes) {
-                if (numBook > 0) {
-                    MessageBox.Show("Có " + (numBook) + " dữ liệu liên quan đến Mã này. \nBạn không thể xóa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (numStaff > 0) {
+                    MessageBox.Show("Có " + (numStaff) + " dữ liệu liên quan đến Mã này. \nBạn không thể xóa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else {
-                    string delete = "DELETE FROM DANHMUC WHERE MADANHMUC = '" + id + "'";
+                    string delete = "DELETE FROM BOPHAN WHERE MABOPHAN = '" + id + "'";
                     db.UpdataData(delete);
 
                     MessageBox.Show("Xóa thành công", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmCategory_Load(null, null);
+                    frmDepartment_Load(null, null);
                 }
                 return;
             }
@@ -162,8 +168,7 @@ namespace BookStore.Admin {
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e) {
-            string loc = string.Format("TENDANHMUC like '%{0}%'",
-                                        txtSearch.Text);
+            string loc = string.Format("TENBOPHAN like '%{0}%'", txtSearch.Text);
             myBindS.Filter = loc;
             dgvData.DataSource = myBindS;
         }
