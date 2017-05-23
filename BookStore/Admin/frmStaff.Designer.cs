@@ -36,14 +36,14 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAcount = new System.Windows.Forms.TextBox();
+            this.btnSaveEdit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnSaveAdd = new System.Windows.Forms.Button();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbbDepartment = new System.Windows.Forms.ComboBox();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.cbbStatus = new System.Windows.Forms.ComboBox();
-            this.btnSaveEdit = new System.Windows.Forms.Button();
-            this.btnSaveAdd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -193,6 +193,17 @@
             this.txtAcount.Size = new System.Drawing.Size(121, 29);
             this.txtAcount.TabIndex = 11;
             // 
+            // btnSaveEdit
+            // 
+            this.btnSaveEdit.Enabled = false;
+            this.btnSaveEdit.Location = new System.Drawing.Point(837, 72);
+            this.btnSaveEdit.Name = "btnSaveEdit";
+            this.btnSaveEdit.Size = new System.Drawing.Size(84, 35);
+            this.btnSaveEdit.TabIndex = 9;
+            this.btnSaveEdit.Text = "Lưu";
+            this.btnSaveEdit.UseVisualStyleBackColor = true;
+            this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -201,6 +212,17 @@
             this.label9.Size = new System.Drawing.Size(75, 21);
             this.label9.TabIndex = 10;
             this.label9.Text = "Tài khoản";
+            // 
+            // btnSaveAdd
+            // 
+            this.btnSaveAdd.Enabled = false;
+            this.btnSaveAdd.Location = new System.Drawing.Point(747, 72);
+            this.btnSaveAdd.Name = "btnSaveAdd";
+            this.btnSaveAdd.Size = new System.Drawing.Size(84, 35);
+            this.btnSaveAdd.TabIndex = 8;
+            this.btnSaveAdd.Text = "Lưu";
+            this.btnSaveAdd.UseVisualStyleBackColor = true;
+            this.btnSaveAdd.Click += new System.EventHandler(this.btnSaveAdd_Click);
             // 
             // txtPass
             // 
@@ -247,28 +269,6 @@
             this.cbbStatus.Size = new System.Drawing.Size(121, 29);
             this.cbbStatus.TabIndex = 7;
             // 
-            // btnSaveEdit
-            // 
-            this.btnSaveEdit.Enabled = false;
-            this.btnSaveEdit.Location = new System.Drawing.Point(837, 72);
-            this.btnSaveEdit.Name = "btnSaveEdit";
-            this.btnSaveEdit.Size = new System.Drawing.Size(84, 35);
-            this.btnSaveEdit.TabIndex = 9;
-            this.btnSaveEdit.Text = "Lưu";
-            this.btnSaveEdit.UseVisualStyleBackColor = true;
-            this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
-            // 
-            // btnSaveAdd
-            // 
-            this.btnSaveAdd.Enabled = false;
-            this.btnSaveAdd.Location = new System.Drawing.Point(747, 72);
-            this.btnSaveAdd.Name = "btnSaveAdd";
-            this.btnSaveAdd.Size = new System.Drawing.Size(84, 35);
-            this.btnSaveAdd.TabIndex = 8;
-            this.btnSaveAdd.Text = "Lưu";
-            this.btnSaveAdd.UseVisualStyleBackColor = true;
-            this.btnSaveAdd.Click += new System.EventHandler(this.btnSaveAdd_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pictureBox1);
@@ -301,9 +301,12 @@
             // 
             // dgvData
             // 
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(7, 109);
             this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
             this.dgvData.Size = new System.Drawing.Size(928, 217);
             this.dgvData.TabIndex = 0;
             this.dgvData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvData_CellFormatting);
@@ -330,6 +333,7 @@
             this.btnExit.TabIndex = 15;
             this.btnExit.Text = "Trở lại";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnCancel
             // 
@@ -340,6 +344,7 @@
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Huỷ";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDelete
             // 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookStore.Admin;
+using BookStore.Sale;
 
 namespace BookStore {
     static class Program {
@@ -14,7 +15,7 @@ namespace BookStore {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmCategory());
         }
     }
 }

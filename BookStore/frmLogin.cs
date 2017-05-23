@@ -49,13 +49,13 @@ namespace BookStore {
             //int a = 3;
             int a = data.Rows.Count;
             if (a == 0) {
-                lbError.Text = "Sai tên đăng nhập";
+                lbError.Text = "Sai tên đăng nhập hoặc mật khẩu";
                 lbError.Visible = true;
                 return;
             }
             else {
                 long state = long.Parse(data.Rows[0]["TRANGTHAI"].ToString());
-                if (state == 0) {
+                if (state == 2) {
                     lbError.Text = "Tài khoản đã bị khóa";
                     lbError.Visible = true;
                     return;

@@ -15,6 +15,7 @@ namespace BookStore.Admin {
         DBConnect db = new DBConnect();
         public frmStaff() {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             myTable = new DataTable();
             myBindS = new BindingSource();
         }
@@ -23,10 +24,11 @@ namespace BookStore.Admin {
         private DataTable myTable;
         private BindingSource myBindS;
         private string[] headerText = { "Mã NV", "Tên nhân viên", "SĐT", "Email", "Địa chỉ", "Tên bộ phận", "Trạng thái", "Tài khoản", "Pass" };
-        private int[] size = { 12, 25, 12, 25, 25, 20, 12, 20, 15 };
+        private int[] size = { 12, 25, 20, 25, 20, 20, 7, 15, 15 };
 
         //Method
         public void Empty() {
+            txtID.Text = "";
             txtName.Text = "";
             txtName.Enabled = false;
             txtPhone.Text = "";
@@ -39,6 +41,10 @@ namespace BookStore.Admin {
             cbbDepartment.Enabled = false;
             cbbStatus.Text = "";
             cbbStatus.Enabled = false;
+            btnAdd.Enabled = true;
+            btnEdit.Enabled = true;
+            btnDelete.Enabled = true;
+            btnCancel.Enabled = false;
         }
 
         public void Enable() {
@@ -213,7 +219,6 @@ namespace BookStore.Admin {
                 btnCancel.Enabled = false;
                 txtAcount.Text = "";
                 txtPass.Text = "";
-                txtID.Text = "";
                 txtAcount.Enabled = false;
                 txtPass.Enabled = false;
                 btnAdd.Enabled = true;
@@ -249,6 +254,20 @@ namespace BookStore.Admin {
                 }
                 return;
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            Empty();
+            btnSaveEdit.Enabled = false;
+            btnSaveAdd.Enabled = false;
+            txtAcount.Text = "";
+            txtAcount.Enabled = false;
+            txtPass.Text = "";
+            txtPass.Enabled = false;
         }
     }
 }
