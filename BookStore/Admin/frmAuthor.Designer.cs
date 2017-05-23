@@ -120,7 +120,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BookStore.Properties.Resources.zoom_search_2_icon;
+            //this.pictureBox1.Image = global::BookStore.Properties.Resources.zoom_search_2_icon;
             this.pictureBox1.Location = new System.Drawing.Point(392, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(35, 35);
@@ -140,6 +140,7 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.BackgroundColor = System.Drawing.Color.Moccasin;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(8, 99);
             this.dgvData.Name = "dgvData";

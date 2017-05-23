@@ -44,12 +44,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -235,6 +235,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Moccasin;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(5, 21);
             this.dataGridView1.Name = "dataGridView1";
@@ -255,6 +256,24 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức năng";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(653, 22);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(84, 35);
+            this.button6.TabIndex = 24;
+            this.button6.Text = "Trở lại";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(541, 22);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(84, 35);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "Huỷ";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -291,24 +310,6 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(541, 22);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(84, 35);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "Huỷ";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(653, 22);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(84, 35);
-            this.button6.TabIndex = 24;
-            this.button6.Text = "Trở lại";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // frmProduct
             // 

@@ -29,6 +29,8 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -40,8 +42,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtSalary = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -113,6 +113,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin bộ phận";
             // 
+            // txtSalary
+            // 
+            this.txtSalary.Enabled = false;
+            this.txtSalary.Location = new System.Drawing.Point(511, 36);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(220, 29);
+            this.txtSalary.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(430, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 21);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Lương";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -124,7 +141,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BookStore.Properties.Resources.zoom_search_2_icon;
+            //this.pictureBox1.Image = global::BookStore.Properties.Resources.zoom_search_2_icon;
             this.pictureBox1.Location = new System.Drawing.Point(392, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(35, 35);
@@ -144,6 +161,7 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.BackgroundColor = System.Drawing.Color.Moccasin;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(8, 99);
             this.dgvData.Name = "dgvData";
@@ -227,23 +245,6 @@
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách bộ phận";
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Enabled = false;
-            this.txtSalary.Location = new System.Drawing.Point(511, 36);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(220, 29);
-            this.txtSalary.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(430, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 21);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Lương";
             // 
             // frmDepartment
             // 
