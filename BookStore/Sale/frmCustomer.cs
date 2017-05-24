@@ -21,11 +21,23 @@ namespace BookStore.Sale {
             myBindS = new BindingSource();
         }
 
+        private string nameCus;
+
         //Attribute
         private DataTable myTable;
         private BindingSource myBindS;
         private string[] headerText = { "Mã KH", "Tên khách hàng", "Email", "SĐT", "Địa chỉ" };
         private int[] size = { 12, 25, 25, 22, 25 };
+
+        public string NameCus {
+            get {
+                return nameCus;
+            }
+
+            set {
+                nameCus = value;
+            }
+        }
 
 
         //Method
@@ -97,6 +109,9 @@ namespace BookStore.Sale {
                 frmCustomer_Load(null, null);
                 Empty();
                 btnSaveAdd.Enabled = false;
+                this.DialogResult = DialogResult.OK;
+                this.NameCus = txtName.Text;
+                this.Close();
             }
         }
 

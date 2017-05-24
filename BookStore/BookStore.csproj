@@ -205,6 +205,26 @@
   <ItemGroup>
     <None Include="Resources\image.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.ico" />
+    <None Include="Resources\users.ico" />
+    <None Include="Resources\lock.ico" />
+    <None Include="Resources\user.ico" />
+    <None Include="Resources\Ampeross-Qetto-2-Add-contact.ico" />
+    <None Include="Resources\7-seven-Login-Form.jpg" />
+    <None Include="Resources\button_add.ico" />
+    <Content Include="Resources\image10.jpg" />
+    <Content Include="Resources\image11.jpg" />
+    <Content Include="Resources\image12.jpg" />
+    <Content Include="Resources\image13.png" />
+    <Content Include="Resources\image14.jpg" />
+    <Content Include="Resources\image15.jpg" />
+    <Content Include="Resources\image5.jpg" />
+    <Content Include="Resources\image6.jpg" />
+    <Content Include="Resources\image7.jpg" />
+    <Content Include="Resources\image8.jpg" />
+    <Content Include="Resources\image9.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

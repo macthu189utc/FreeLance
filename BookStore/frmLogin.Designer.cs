@@ -27,77 +27,65 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtAccount = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.llbRegister = new System.Windows.Forms.LinkLabel();
             this.lbError = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(205, 215);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.BackColor = System.Drawing.Color.Black;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(200, 234);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(112, 37);
+            this.btnExit.Size = new System.Drawing.Size(110, 42);
             this.btnExit.TabIndex = 17;
             this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(70, 215);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogin.BackColor = System.Drawing.Color.Black;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(59, 234);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(112, 37);
+            this.btnLogin.Size = new System.Drawing.Size(110, 42);
             this.btnLogin.TabIndex = 16;
             this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(148, 108);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPassword.Location = new System.Drawing.Point(85, 120);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(226, 29);
+            this.txtPassword.Size = new System.Drawing.Size(252, 34);
             this.txtPassword.TabIndex = 15;
             // 
             // txtAccount
             // 
-            this.txtAccount.Location = new System.Drawing.Point(148, 56);
-            this.txtAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAccount.Location = new System.Drawing.Point(85, 51);
+            this.txtAccount.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(226, 29);
+            this.txtAccount.Size = new System.Drawing.Size(252, 34);
             this.txtAccount.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 108);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 21);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Mật khẩu";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 21);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Tên tài khoản";
             // 
             // llbRegister
             // 
             this.llbRegister.AutoSize = true;
-            this.llbRegister.Location = new System.Drawing.Point(239, 159);
+            this.llbRegister.Location = new System.Drawing.Point(167, 174);
             this.llbRegister.Name = "llbRegister";
-            this.llbRegister.Size = new System.Drawing.Size(135, 21);
+            this.llbRegister.Size = new System.Drawing.Size(170, 28);
             this.llbRegister.TabIndex = 18;
             this.llbRegister.TabStop = true;
             this.llbRegister.Text = "Đăng ký tài khoản";
@@ -106,33 +94,60 @@
             // lbError
             // 
             this.lbError.AutoSize = true;
-            this.lbError.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbError.ForeColor = System.Drawing.Color.Red;
-            this.lbError.Location = new System.Drawing.Point(148, 18);
-            this.lbError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbError.Location = new System.Drawing.Point(44, 17);
+            this.lbError.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbError.Name = "lbError";
-            this.lbError.Size = new System.Drawing.Size(265, 19);
+            this.lbError.Size = new System.Drawing.Size(295, 21);
             this.lbError.TabIndex = 19;
             this.lbError.Text = "Tên tài khoản hoặc mật khẩu không đúng";
             this.lbError.Visible = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Image = global::BookStore.Properties.Resources.user;
+            this.pictureBox2.Location = new System.Drawing.Point(51, 51);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::BookStore.Properties.Resources._lock;
+            this.pictureBox1.Location = new System.Drawing.Point(51, 120);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 289);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(395, 315);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbError);
             this.Controls.Add(this.llbRegister);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtAccount);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Name = "frmLogin";
             this.Text = "Đăng nhập";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,9 +159,9 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtAccount;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel llbRegister;
         private System.Windows.Forms.Label lbError;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

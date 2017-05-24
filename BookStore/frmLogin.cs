@@ -46,7 +46,7 @@ namespace BookStore {
             string strSQL = string.Format("SELECT * FROM NHANVIEN " +
                                           "where TENTAIKHOAN = '{0}' and MATKHAU = '{1}'", acc, pass);
             DataTable data = db.GetData(strSQL);
-            //int a = 3;
+
             int a = data.Rows.Count;
             if (a == 0) {
                 lbError.Text = "Sai tên đăng nhập hoặc mật khẩu";

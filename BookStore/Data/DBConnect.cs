@@ -49,15 +49,15 @@ namespace BookStore.Data {
             return numRecord;
         }
 
-        public string layTen(string sql) {
-            string ten = "";
+        public string GetName(string sql) {
+            string name = "";
             DataTable dt = new DataTable();
             ConnectData();
             SqlDataAdapter sqldataAdapter = new SqlDataAdapter(sql, connect);
             sqldataAdapter.Fill(dt);
-            ten = dt.Rows[0][0].ToString();
+            name = dt.Rows[0][0].ToString();
             ConnectClose();
-            return ten;
+            return name;
         }
 
 

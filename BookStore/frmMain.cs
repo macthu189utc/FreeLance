@@ -14,23 +14,64 @@ using System.Windows.Forms;
 namespace BookStore {
     public partial class frmMain : Form {
         public int ROLE { get; set; }
+
+        public string IdStaff {
+            get {
+                return idStaff;
+            }
+
+            set {
+                idStaff = value;
+            }
+        }
+
         DBConnect db = new DBConnect();
 
         public frmMain() {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             myTable = new DataTable();
+            myTableOrder = new DataTable();
+            tableCus = new DataTable();
             myBindS = new BindingSource();
         }
 
+        private DataTable tableCus;
         private DataTable myTable;
+        private DataTable myTableOrder;
         private BindingSource myBindS;
-        private string[] headerText = { "Tên sách", "Tên danh mục", "Tên tác giả", "Mô tả", "Tên NXB", "Số lượng", "Đơn giá" };
-        private int[] size = { 25, 20, 20, 15, 15, 10, 20 };
+        private string[] headerText = { "Mã sách", "Tên sách", "Tên danh mục", "Tên tác giả", "Mô tả", "Tên NXB", "Số lượng", "Đơn giá" };
+        private int[] size = { 15, 25, 20, 20, 15, 15, 10, 20 };
 
-        //private string[] headerTextOrder = { "Tên sách", "Tên danh mục", "Tên tác giả", "Mô tả", "Tên NXB", "Số lượng", "Đơn giá" };
-        //private int[] sizeOrder = { 25, 20, 20, 15, 15, 10, 20 };
+        private string[] headerTextOrder = { "Mã sách", "Tên sách", "Số lượng", "Đơn giá" };
+        private int[] sizeOrder = { 15, 25, 20, 20};
 
+        private string idStaff = "";
+
+
+        public void GetData() {
+            // Lấy dữ liệu từ CSDL
+            string strCL = "SELECT MASACH, TENSACH, TENDANHMUC, TENTACGIA, MOTA, TENNHAXUATBAN, SOLUONGTON, DONGIA, ANHBIA FROM SACH"
+                         + " INNER JOIN DANHMUC ON DANHMUC.MADANHMUC = SACH.MADANHMUC"
+                         + " INNER JOIN TACGIA ON TACGIA.MATACGIA = SACH.MATACGIA"
+                         + " INNER JOIN NHAXUATBAN ON NHAXUATBAN.MANHAXUATBAN = SACH.MANHAXUATBAN";
+            myTable = db.GetData(strCL);
+
+            // Gán dl bảng vào binding, binding gán vào dgv
+            myBindS.DataSource = myTable;
+            dgvData.DataSource = myBindS;
+
+            // Set size + headerText cho dgv
+            for (int i = 0; i < headerText.Length; i++) {
+                dgvData.Columns[i].HeaderText = headerText[i];
+                dgvData.Columns[i].Width = ((dgvData.Width) / 100) * size[i];
+            }
+
+            this.dgvData.Columns[7].Visible = false;
+
+            // Chọn theo chế độ cả hàng
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
         private void mnProduct_Click(object sender, EventArgs e) {
             frmProduct fp = new frmProduct();
             fp.ShowDialog();
@@ -85,43 +126,123 @@ namespace BookStore {
             if (ROLE == 2) {
                 mnManager.Enabled = false;
             }
+            //Lấy dữ liệu từ bảng sách
+            GetData();
 
-            // Lấy dữ liệu từ CSDL
-            string strCL = "SELECT TENSACH, TENDANHMUC, TENTACGIA, MOTA, TENNHAXUATBAN, SOLUONGTON, DONGIA, MASACH FROM SACH"
-                         + " INNER JOIN DANHMUC ON DANHMUC.MADANHMUC = SACH.MADANHMUC"
-                         + " INNER JOIN TACGIA ON TACGIA.MATACGIA = SACH.MATACGIA"
-                         + " INNER JOIN NHAXUATBAN ON NHAXUATBAN.MANHAXUATBAN = SACH.MANHAXUATBAN";
-            myTable = db.GetData(strCL);
+            //Lấy tên nhân viên đăng nhập
+            // Gán nhân viên
+            //string strCmd = "Select TENNHANVIEN from NHANVIEN where MANHANVIEN = '" + IdStaff + "'";
+            //string nameStaff = db.GetName(strCmd);
+            //lbNameStaff.Text = nameStaff;
 
-            // Gán dl bảng vào binding, binding gán vào dgv
-            myBindS.DataSource = myTable;
-            dgvData.DataSource = myBindS;
+            //Đổ dữ liệu khách hàng cho cbb
+            string sqlCus = "Select MAKHACHHANG, TENKHACHHANG from KHACHHANG";
+            DataTable dt = db.GetData(sqlCus);
 
-            // Set size + headerText cho dgv
-            for (int i = 0; i < headerText.Length; i++) {
-                dgvData.Columns[i].HeaderText = headerText[i];
-                dgvData.Columns[i].Width = ((dgvData.Width) / 100) * size[i];
-            }
+            cbbCustomer.DisplayMember = "TENKHACHHANG";
+            cbbCustomer.ValueMember = "MAKHACHHANG";
+            cbbCustomer.DataSource = dt;
 
-            this.dgvData.Columns[7].Visible = false;
+            DataRow dr = dt.NewRow();
+            dr["TENKHACHHANG"] = "-- Chọn khách hàng --";
+            dr["MAKHACHHANG"] = 0;
 
-            // Chọn theo chế độ cả hàng
-            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dt.Rows.InsertAt(dr, 0);
+            cbbCustomer.SelectedIndex = 0;
 
         }
 
         private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
-            int index = dgvData.SelectedRows[0].Index;
-            foreach (DataGridViewRow item in dgvData.Rows) {
-                int n = dgvOrder.Rows.Add();
-                dgvOrder.Rows[n].Cells[0].Value = item.Cells[0].Value.ToString();
-                dgvOrder.Rows[n].Cells[1].Value = item.Cells[1].Value.ToString();
-                dgvOrder.Rows[n].Cells[2].Value = item.Cells[2].Value.ToString();
-                dgvOrder.Rows[n].Cells[3].Value = item.Cells[3].Value.ToString();
-                dgvOrder.Rows[n].Cells[4].Value = item.Cells[4].Value.ToString();
-                dgvOrder.Rows[n].Cells[5].Value = item.Cells[5].Value.ToString();
-                dgvOrder.Rows[n].Cells[6].Value = item.Cells[6].Value.ToString();
+            //int index = dgvData.SelectedRows[0].Index;
+            ////string selectedItem = dgvData.SelectedRows[index].ToString();
+            //foreach (DataGridViewRow item in dgvData.Rows) {
+            //    //dgvOrder.Rows.Add();
+            //    int n = dgvOrder.Rows.Add();
+            //    dgvOrder.Rows[index].Cells[0].Value = item.Cells[1].Value.ToString();
+            //    dgvOrder.Rows[index].Cells[1].Value = item.Cells[2].Value.ToString();
+            //    dgvOrder.Rows[index].Cells[2].Value = item.Cells[3].Value.ToString();
+            //    dgvOrder.Rows[index].Cells[3].Value = item.Cells[4].Value.ToString();
+            //    dgvOrder.Rows[index].Cells[4].Value = item.Cells[5].Value.ToString();
+            //    dgvOrder.Rows[index].Cells[5].Value = item.Cells[6].Value.ToString();
+            //    dgvOrder.Rows[index].Cells[6].Value = item.Cells[7].Value.ToString();
+            //}
+
+            //Double Rows -> Rows vào DataTable, 
+            //DataTable dt = new DataTable();
+            //foreach (DataGridViewColumn col in dgvData.Columns) {
+            //    dt.Columns.Add(col.HeaderText);
+            //}
+
+            //foreach (DataGridViewRow row in dgvData.Rows) {
+            //    DataRow dRow = dt.NewRow();
+            //    foreach (DataGridViewCell cell in row.Cells) {
+            //        dRow[cell.ColumnIndex] = cell.Value;
+            //    }
+            //    dt.Rows.Add(dRow);
+            //}
+
+            //Từ DataTable -> dgvOrder.
+            //Xoá data ở DataTable đi
+
+            //Lấy ra ID
+            string id = dgvData.Rows[dgvData.SelectedRows[0].Index].Cells[0].Value.ToString();
+            //Select data theo ID vừa lấy
+            string strCL = "SELECT MASACH, TENSACH, SOLUONGTON, DONGIA FROM SACH"
+                         + " WHERE MASACH = '" + id + "'";
+            myTableOrder = db.GetData(strCL);
+            GetData();
+            //Đổ vào dgvOrder
+            // Gán dl bảng vào binding, binding gán vào dgv
+            myBindS.DataSource = myTableOrder;
+            dgvOrder.DataSource = myBindS;
+
+            // Set size + headerText cho dgv
+            for (int i = 0; i < headerTextOrder.Length; i++) {
+                dgvOrder.Columns[i].HeaderText = headerTextOrder[i];
+                dgvOrder.Columns[i].Width = ((dgvOrder.Width) / 100) * sizeOrder[i];
             }
+            //dgvOrder.Columns["SOLUONGTON"].DefaultCellStyle.NullValue = "1";
+
+            // Chọn theo chế độ cả hàng
+            dgvOrder.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void dgvData_CellClick(object sender, DataGridViewCellEventArgs e) {
+            // Lấy vị trí hàng đang được chọn
+            int choose_ing = dgvData.SelectedRows[0].Index;
+
+            if (choose_ing >= 0) {
+                // Đặt lại ảnh
+                string urlImage = dgvData.Rows[choose_ing].Cells["ANHBIA"].Value.ToString();
+                ptbBook.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + "\\Resources\\" + urlImage);
+
+            }
+        }
+
+        private void ptbAddCustomer_Click(object sender, EventArgs e) {
+            
+
+            frmCustomer fc = new frmCustomer();
+            if (fc.ShowDialog() == DialogResult.OK) {
+                // Update dl
+                string sql = "Select MAKHACHHANG, TENKHACHHANG from KHACHHANG";
+                tableCus = db.GetData(sql);
+                cbbCustomer.DataSource = tableCus;
+                cbbCustomer.DisplayMember = "TENKHACHHANG";
+                cbbCustomer.ValueMember = "MAKHACHHANG";
+
+                // Set khách hàng là khách vừa thêm
+                cbbCustomer.SelectedIndex = cbbCustomer.Items.Count - 1;
+            }
+            string sqlUpdate = "Select MAKHACHHANG, TENKHACHHANG from KHACHHANG";
+            tableCus = db.GetData(sqlUpdate);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e) {
+            string loc = string.Format("TENSACH like '%{0}%' or TENNHAXUATBAN like '%{1}%' or TENTACGIA like '%{2}%' or TENDANHMUC like '%{3}%'",
+                                        txtSearch.Text, txtSearch.Text, txtSearch.Text, txtSearch.Text);
+            myBindS.Filter = loc;
+            dgvData.DataSource = myBindS;
         }
     }
 }
