@@ -30,6 +30,7 @@ namespace BookStore {
         }
 
         private void btnLogin_Click(object sender, EventArgs e) {
+
             string acc = txtAccount.Text.Trim().Replace("-", "");
             string pass = txtPassword.Text;
 
@@ -62,10 +63,11 @@ namespace BookStore {
                 }
 
                 lbError.Visible = false;
+                this.AcceptButton = btnLogin;
                 this.Hide();
                 int role = int.Parse(data.Rows[0]["MABOPHAN"].ToString());
                 frmMain fMain = new frmMain();
-                fMain.ROLE = role;
+                DBConnect.BOPHAN = role;
                 fMain.ShowDialog();
                 this.Close();
             }

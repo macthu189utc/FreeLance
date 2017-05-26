@@ -37,13 +37,14 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Black;
+            this.btnExit.BackColor = System.Drawing.Color.LimeGreen;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(200, 234);
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.Black;
+            this.btnExit.Location = new System.Drawing.Point(203, 235);
             this.btnExit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(110, 42);
+            this.btnExit.Size = new System.Drawing.Size(98, 36);
             this.btnExit.TabIndex = 17;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -51,13 +52,14 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.Black;
+            this.btnLogin.BackColor = System.Drawing.Color.LimeGreen;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(59, 234);
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.Location = new System.Drawing.Point(78, 235);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(110, 42);
+            this.btnLogin.Size = new System.Drawing.Size(119, 36);
             this.btnLogin.TabIndex = 16;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -107,7 +109,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = global::BookStore.Properties.Resources.user;
+            this.pictureBox2.Image = global::BookStore.Properties.Resources._32_user;
             this.pictureBox2.Location = new System.Drawing.Point(51, 51);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
@@ -119,7 +121,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::BookStore.Properties.Resources._lock;
+            this.pictureBox1.Image = global::BookStore.Properties.Resources._32_key;
             this.pictureBox1.Location = new System.Drawing.Point(51, 120);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -133,7 +135,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(395, 315);
+            this.ClientSize = new System.Drawing.Size(395, 310);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbError);

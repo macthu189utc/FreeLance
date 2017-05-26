@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace BookStore.Data {
     class DBConnect {
+
+        public static int BOPHAN = 1;
+        public static int ADMIN = 2;
+        public static int BANHANG = 1;
+
         // Tạo kết nối
         string strConnect = "Data Source=BANH-MY\\BANHMY;Initial Catalog=BANSACH;Integrated Security=True";
         SqlConnection connect = null;

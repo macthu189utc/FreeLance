@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnManager = new System.Windows.Forms.ToolStripMenuItem();
@@ -31,16 +32,19 @@
             this.mnPublisher = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnProvider = new System.Windows.Forms.ToolStripMenuItem();
-            this.bánHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnSale = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnBillOrderOut = new System.Windows.Forms.ToolStripMenuItem();
             this.mnBillOrderIn = new System.Windows.Forms.ToolStripMenuItem();
             this.mnHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ptbBook = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbNameStaff = new System.Windows.Forms.Label();
+            this.ptbAddCustomer = new System.Windows.Forms.PictureBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.rtbMoneyWord = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,24 +56,21 @@
             this.dtpDateOrder = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ptbAddCustomer = new System.Windows.Forms.PictureBox();
-            this.ptbBook = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAddCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAddCustomer)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvData
             // 
             this.dgvData.AllowUserToDeleteRows = false;
-            this.dgvData.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(6, 224);
             this.dgvData.Name = "dgvData";
@@ -83,7 +84,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnManager,
-            this.bánHàngToolStripMenuItem,
+            this.mnSale,
             this.mnHelp,
             this.mnLogout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -100,57 +101,65 @@
             this.mnPublisher,
             this.mnStaff,
             this.mnProvider});
+            this.mnManager.Image = global::BookStore.Properties.Resources._32_user_starred;
             this.mnManager.Name = "mnManager";
-            this.mnManager.Size = new System.Drawing.Size(60, 20);
+            this.mnManager.Size = new System.Drawing.Size(76, 20);
             this.mnManager.Text = "Quản lý";
             // 
             // mnProduct
             // 
+            this.mnProduct.Image = global::BookStore.Properties.Resources._32_basket_full;
             this.mnProduct.Name = "mnProduct";
-            this.mnProduct.Size = new System.Drawing.Size(148, 22);
+            this.mnProduct.Size = new System.Drawing.Size(152, 22);
             this.mnProduct.Text = "Sản phẩm";
             this.mnProduct.Click += new System.EventHandler(this.mnProduct_Click);
             // 
             // mnCategory
             // 
+            this.mnCategory.Image = global::BookStore.Properties.Resources._32_folder_tag;
             this.mnCategory.Name = "mnCategory";
-            this.mnCategory.Size = new System.Drawing.Size(148, 22);
+            this.mnCategory.Size = new System.Drawing.Size(152, 22);
             this.mnCategory.Text = "Danh mục";
             this.mnCategory.Click += new System.EventHandler(this.mnCategory_Click);
             // 
             // mnPublisher
             // 
+            this.mnPublisher.Image = global::BookStore.Properties.Resources._32_user_starred1;
             this.mnPublisher.Name = "mnPublisher";
-            this.mnPublisher.Size = new System.Drawing.Size(148, 22);
+            this.mnPublisher.Size = new System.Drawing.Size(152, 22);
             this.mnPublisher.Text = "Nhà xuất bản";
             this.mnPublisher.Click += new System.EventHandler(this.mnPublisher_Click);
             // 
             // mnStaff
             // 
+            this.mnStaff.Image = global::BookStore.Properties.Resources._32_user_favourite;
             this.mnStaff.Name = "mnStaff";
-            this.mnStaff.Size = new System.Drawing.Size(148, 22);
+            this.mnStaff.Size = new System.Drawing.Size(152, 22);
             this.mnStaff.Text = "Nhân viên";
             this.mnStaff.Click += new System.EventHandler(this.mnStaff_Click);
             // 
             // mnProvider
             // 
+            this.mnProvider.Image = global::BookStore.Properties.Resources._32_user_unstarred;
             this.mnProvider.Name = "mnProvider";
-            this.mnProvider.Size = new System.Drawing.Size(148, 22);
+            this.mnProvider.Size = new System.Drawing.Size(152, 22);
             this.mnProvider.Text = "Nhà cung cấp";
             this.mnProvider.Click += new System.EventHandler(this.mnProvider_Click);
             // 
-            // bánHàngToolStripMenuItem
+            // mnSale
             // 
-            this.bánHàngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnSale.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnCustomer,
             this.mnBillOrderOut,
             this.mnBillOrderIn});
-            this.bánHàngToolStripMenuItem.Name = "bánHàngToolStripMenuItem";
-            this.bánHàngToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.bánHàngToolStripMenuItem.Text = "Bán hàng";
+            this.mnSale.Image = global::BookStore.Properties.Resources._32_basket_empty;
+            this.mnSale.Name = "mnSale";
+            this.mnSale.Size = new System.Drawing.Size(85, 20);
+            this.mnSale.Text = "Bán hàng";
             // 
             // mnCustomer
             // 
+            this.mnCustomer.Image = global::BookStore.Properties.Resources._32_user;
             this.mnCustomer.Name = "mnCustomer";
             this.mnCustomer.Size = new System.Drawing.Size(150, 22);
             this.mnCustomer.Text = "Khách hàng";
@@ -158,6 +167,7 @@
             // 
             // mnBillOrderOut
             // 
+            this.mnBillOrderOut.Image = global::BookStore.Properties.Resources._32_file;
             this.mnBillOrderOut.Name = "mnBillOrderOut";
             this.mnBillOrderOut.Size = new System.Drawing.Size(150, 22);
             this.mnBillOrderOut.Text = "Hoá đơn bán";
@@ -165,6 +175,7 @@
             // 
             // mnBillOrderIn
             // 
+            this.mnBillOrderIn.Image = global::BookStore.Properties.Resources._32_note;
             this.mnBillOrderIn.Name = "mnBillOrderIn";
             this.mnBillOrderIn.Size = new System.Drawing.Size(150, 22);
             this.mnBillOrderIn.Text = "Hoá đơn nhập";
@@ -172,15 +183,17 @@
             // 
             // mnHelp
             // 
+            this.mnHelp.Image = global::BookStore.Properties.Resources._32_settings;
             this.mnHelp.Name = "mnHelp";
-            this.mnHelp.Size = new System.Drawing.Size(63, 20);
+            this.mnHelp.Size = new System.Drawing.Size(79, 20);
             this.mnHelp.Text = "Trợ giúp";
             this.mnHelp.Click += new System.EventHandler(this.mnHelp_Click);
             // 
             // mnLogout
             // 
+            this.mnLogout.Image = global::BookStore.Properties.Resources._32_arrow_refresh;
             this.mnLogout.Name = "mnLogout";
-            this.mnLogout.Size = new System.Drawing.Size(72, 20);
+            this.mnLogout.Size = new System.Drawing.Size(88, 20);
             this.mnLogout.Text = "Đăng xuất";
             this.mnLogout.Click += new System.EventHandler(this.mnLogout_Click);
             // 
@@ -198,6 +211,27 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách sách";
+            // 
+            // ptbBook
+            // 
+            this.ptbBook.Image = global::BookStore.Properties.Resources.image;
+            this.ptbBook.Location = new System.Drawing.Point(453, 23);
+            this.ptbBook.Name = "ptbBook";
+            this.ptbBook.Size = new System.Drawing.Size(160, 190);
+            this.ptbBook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbBook.TabIndex = 5;
+            this.ptbBook.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::BookStore.Properties.Resources._32_user_search;
+            this.pictureBox1.Location = new System.Drawing.Point(321, 109);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // txtSearch
             // 
@@ -244,17 +278,32 @@
             this.lbNameStaff.Text = "Dương Vũ";
             this.lbNameStaff.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // ptbAddCustomer
+            // 
+            this.ptbAddCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbAddCustomer.Image = global::BookStore.Properties.Resources._32_user_add;
+            this.ptbAddCustomer.Location = new System.Drawing.Point(402, 51);
+            this.ptbAddCustomer.Name = "ptbAddCustomer";
+            this.ptbAddCustomer.Size = new System.Drawing.Size(29, 29);
+            this.ptbAddCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAddCustomer.TabIndex = 6;
+            this.ptbAddCustomer.TabStop = false;
+            this.ptbAddCustomer.Click += new System.EventHandler(this.ptbAddCustomer_Click);
+            // 
             // btnPay
             // 
-            this.btnPay.BackColor = System.Drawing.Color.Black;
+            this.btnPay.BackColor = System.Drawing.Color.LimeGreen;
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnPay.ForeColor = System.Drawing.Color.Black;
+            this.btnPay.Image = global::BookStore.Properties.Resources._32_basket_add;
+            this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPay.Location = new System.Drawing.Point(57, 485);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(118, 44);
+            this.btnPay.Size = new System.Drawing.Size(146, 44);
             this.btnPay.TabIndex = 11;
             this.btnPay.Text = "Thanh toán";
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPay.UseVisualStyleBackColor = false;
             // 
             // rtbMoneyWord
@@ -312,7 +361,7 @@
             // dgvOrder
             // 
             this.dgvOrder.AllowUserToDeleteRows = false;
-            this.dgvOrder.BackgroundColor = System.Drawing.Color.Black;
+            this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrder.Location = new System.Drawing.Point(12, 26);
             this.dgvOrder.Name = "dgvOrder";
@@ -361,39 +410,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Khách hàng";
             // 
-            // ptbAddCustomer
-            // 
-            this.ptbAddCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbAddCustomer.Image = global::BookStore.Properties.Resources.button_add;
-            this.ptbAddCustomer.Location = new System.Drawing.Point(402, 51);
-            this.ptbAddCustomer.Name = "ptbAddCustomer";
-            this.ptbAddCustomer.Size = new System.Drawing.Size(29, 29);
-            this.ptbAddCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAddCustomer.TabIndex = 6;
-            this.ptbAddCustomer.TabStop = false;
-            this.ptbAddCustomer.Click += new System.EventHandler(this.ptbAddCustomer_Click);
-            // 
-            // ptbBook
-            // 
-            this.ptbBook.Image = global::BookStore.Properties.Resources.image;
-            this.ptbBook.Location = new System.Drawing.Point(453, 23);
-            this.ptbBook.Name = "ptbBook";
-            this.ptbBook.Size = new System.Drawing.Size(160, 190);
-            this.ptbBook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbBook.TabIndex = 5;
-            this.ptbBook.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::BookStore.Properties.Resources.search1;
-            this.pictureBox1.Location = new System.Drawing.Point(321, 109);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(29, 29);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -404,6 +420,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmMain";
@@ -414,13 +431,13 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAddCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAddCustomer)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,7 +452,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnCategory;
         private System.Windows.Forms.ToolStripMenuItem mnPublisher;
         private System.Windows.Forms.ToolStripMenuItem mnStaff;
-        private System.Windows.Forms.ToolStripMenuItem bánHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnSale;
         private System.Windows.Forms.ToolStripMenuItem mnHelp;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;

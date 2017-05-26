@@ -206,6 +206,10 @@
     <None Include="Resources\image.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Natsu FolderOpen.ico" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\write-circle-green-256.png" />
+    <None Include="Resources\phone-icon-clip-art--royalty--7.png" />
     <None Include="Resources\search.ico" />
     <None Include="Resources\users.ico" />
     <None Include="Resources\lock.ico" />
@@ -213,6 +217,36 @@
     <None Include="Resources\Ampeross-Qetto-2-Add-contact.ico" />
     <None Include="Resources\7-seven-Login-Form.jpg" />
     <None Include="Resources\button_add.ico" />
+    <None Include="Resources\email-icon-78834.png" />
+    <None Include="Resources\add.ico" />
+    <None Include="Resources\bullet_add.png" />
+    <None Include="Resources\32-Add.png" />
+    <None Include="Resources\bullet_edit.png" />
+    <None Include="Resources\32_bullet_delete.png" />
+    <None Include="Resources\32_bullet_deny.png" />
+    <None Include="Resources\32_arrow_redo.png" />
+    <None Include="Resources\32_bullet_accept.png" />
+    <None Include="Resources\32_user_starred.png" />
+    <None Include="Resources\32_zoom_in.png" />
+    <None Include="Resources\32_folder_tag.png" />
+    <None Include="Resources\32_user_starred1.png" />
+    <None Include="Resources\32_user_favourite.png" />
+    <None Include="Resources\32_user_unstarred.png" />
+    <None Include="Resources\32_basket_full.png" />
+    <None Include="Resources\32_note.png" />
+    <None Include="Resources\32_file.png" />
+    <None Include="Resources\32_user.png" />
+    <None Include="Resources\32_settings.png" />
+    <None Include="Resources\32_arrow_refresh.png" />
+    <None Include="Resources\32_basket_empty.png" />
+    <None Include="Resources\32_user_search.png" />
+    <None Include="Resources\32_user_add.png" />
+    <None Include="Resources\32_key.png" />
+    <None Include="Resources\32_folder_starred.png" />
+    <None Include="Resources\32_email_opened.png" />
+    <None Include="Resources\32_email.png" />
+    <None Include="Resources\32_basket_add.png" />
+    <None Include="Resources\32_459311991.jpg" />
     <Content Include="Resources\image10.jpg" />
     <Content Include="Resources\image11.jpg" />
     <Content Include="Resources\image12.jpg" />
@@ -224,6 +258,9 @@
     <Content Include="Resources\image7.jpg" />
     <Content Include="Resources\image8.jpg" />
     <Content Include="Resources\image9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Image\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

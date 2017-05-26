@@ -67,6 +67,7 @@ namespace BookStore.Sale {
 
         //Event
         private void frmCustomer_Load(object sender, EventArgs e) {
+
             // Lấy dữ liệu từ CSDL
             string strCL = "SELECT * FROM KHACHHANG";
             myTable = db.GetData(strCL);

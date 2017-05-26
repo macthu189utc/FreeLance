@@ -24,20 +24,15 @@ namespace BookStore {
         }
 
         private void frmRegister_Load(object sender, EventArgs e) {
-            string sqlDp = "Select * from BOPHAN";
-            DataTable dtDp = db.GetData(sqlDp);
 
-            cbbDepartment.DataSource = dtDp;
-            cbbDepartment.DisplayMember = "TENBOPHAN";
-            cbbDepartment.ValueMember = "MABOPHAN";
-            cbbDepartment.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbbDepartment.AutoCompleteMode = AutoCompleteMode.Suggest;
         }
 
         private void btnRegister_Click(object sender, EventArgs e) {
             string acc = txtAccount.Text.Trim().Replace("-", "");
             string pass = txtPassword.Text;
-            long bp = long.Parse(cbbDepartment.SelectedValue.ToString());
+            string phone = txtPhone.Text;
+            string email = txtEmail.Text;
+
 
             // Kiểm tra các trường bỏ trống
             if (acc == "") {
@@ -67,7 +62,7 @@ namespace BookStore {
                             "(TENNHANVIEN, SODIENTHOAI, EMAIL, " +
                             " DIACHI, MABOPHAN, TRANGTHAI, TENTAIKHOAN, MATKHAU) " +
                             "VALUES('{0}', '{1}', '{2}', '{3}', {4}, {5}, '{6}', '{7}')",
-                            acc, "0", "-", "-", bp, 1, acc, pass);
+                            acc, phone, email, "-", 1, 1, acc, pass);
 
                 db.UpdataData(strSQL);
                 MessageBox.Show("Bạn đã đăng ký thành công. Vui lòng đăng nhập.");

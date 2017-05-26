@@ -13,7 +13,6 @@ using System.Windows.Forms;
 
 namespace BookStore {
     public partial class frmMain : Form {
-        public int ROLE { get; set; }
 
         public string IdStaff {
             get {
@@ -51,7 +50,7 @@ namespace BookStore {
 
         public void GetData() {
             // Lấy dữ liệu từ CSDL
-            string strCL = "SELECT MASACH, TENSACH, TENDANHMUC, TENTACGIA, MOTA, TENNHAXUATBAN, SOLUONGTON, DONGIA, ANHBIA FROM SACH"
+            string strCL = "SELECT MASACH, TENSACH, TENDANHMUC, TENTACGIA, MOTA, TENNHAXUATBAN, SOLUONGTON, DONGIABAN, ANHBIA FROM SACH"
                          + " INNER JOIN DANHMUC ON DANHMUC.MADANHMUC = SACH.MADANHMUC"
                          + " INNER JOIN TACGIA ON TACGIA.MATACGIA = SACH.MATACGIA"
                          + " INNER JOIN NHAXUATBAN ON NHAXUATBAN.MANHAXUATBAN = SACH.MANHAXUATBAN";
@@ -113,8 +112,10 @@ namespace BookStore {
         }
 
         private void mnLogout_Click(object sender, EventArgs e) {
+            this.Hide();
             frmLogin fl = new frmLogin();
             fl.ShowDialog();
+            this.Show();
         }
 
         private void mnBillOrderIn_Click(object sender, EventArgs e) {
@@ -123,9 +124,10 @@ namespace BookStore {
         }
 
         private void frmMain_Load(object sender, EventArgs e) {
-            if (ROLE == 2) {
-                mnManager.Enabled = false;
+            if (DBConnect.BOPHAN == DBConnect.BANHANG) {
+               mnManager.Enabled = false;
             }
+
             //Lấy dữ liệu từ bảng sách
             GetData();
 
@@ -153,37 +155,6 @@ namespace BookStore {
         }
 
         private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
-            //int index = dgvData.SelectedRows[0].Index;
-            ////string selectedItem = dgvData.SelectedRows[index].ToString();
-            //foreach (DataGridViewRow item in dgvData.Rows) {
-            //    //dgvOrder.Rows.Add();
-            //    int n = dgvOrder.Rows.Add();
-            //    dgvOrder.Rows[index].Cells[0].Value = item.Cells[1].Value.ToString();
-            //    dgvOrder.Rows[index].Cells[1].Value = item.Cells[2].Value.ToString();
-            //    dgvOrder.Rows[index].Cells[2].Value = item.Cells[3].Value.ToString();
-            //    dgvOrder.Rows[index].Cells[3].Value = item.Cells[4].Value.ToString();
-            //    dgvOrder.Rows[index].Cells[4].Value = item.Cells[5].Value.ToString();
-            //    dgvOrder.Rows[index].Cells[5].Value = item.Cells[6].Value.ToString();
-            //    dgvOrder.Rows[index].Cells[6].Value = item.Cells[7].Value.ToString();
-            //}
-
-            //Double Rows -> Rows vào DataTable, 
-            //DataTable dt = new DataTable();
-            //foreach (DataGridViewColumn col in dgvData.Columns) {
-            //    dt.Columns.Add(col.HeaderText);
-            //}
-
-            //foreach (DataGridViewRow row in dgvData.Rows) {
-            //    DataRow dRow = dt.NewRow();
-            //    foreach (DataGridViewCell cell in row.Cells) {
-            //        dRow[cell.ColumnIndex] = cell.Value;
-            //    }
-            //    dt.Rows.Add(dRow);
-            //}
-
-            //Từ DataTable -> dgvOrder.
-            //Xoá data ở DataTable đi
-
             //Lấy ra ID
             string id = dgvData.Rows[dgvData.SelectedRows[0].Index].Cells[0].Value.ToString();
             //Select data theo ID vừa lấy
