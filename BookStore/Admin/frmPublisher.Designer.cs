@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPublisher));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -31,7 +32,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSaveEdit = new System.Windows.Forms.Button();
@@ -44,11 +44,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -67,60 +68,85 @@
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = global::BookStore.Properties.Resources._32_arrow_left;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExit.Location = new System.Drawing.Point(581, 29);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(84, 35);
+            this.btnExit.Size = new System.Drawing.Size(98, 35);
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Trở lại";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.LimeGreen;
             this.btnCancel.Enabled = false;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Image = global::BookStore.Properties.Resources._32_bullet_deny;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(465, 29);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(84, 35);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Huỷ";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = global::BookStore.Properties.Resources._32_bullet_delete;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.Location = new System.Drawing.Point(349, 29);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(84, 35);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Xoá";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Image = global::BookStore.Properties.Resources.bullet_edit;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(233, 29);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(84, 35);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = global::BookStore.Properties.Resources.bullet_add;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.Location = new System.Drawing.Point(117, 29);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(84, 35);
+            this.btnAdd.Size = new System.Drawing.Size(94, 35);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
-            this.dgvData.BackgroundColor = System.Drawing.Color.Moccasin;
+            this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Location = new System.Drawing.Point(7, 92);
             this.dgvData.Name = "dgvData";
@@ -139,16 +165,6 @@
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách nhà xuất bản";
-            // 
-            // pictureBox1
-            // 
-            //this.pictureBox1.Image = global::BookStore.Properties.Resources.zoom_search_2_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(383, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
             // 
             // txtSearch
             // 
@@ -179,24 +195,34 @@
             // 
             // btnSaveEdit
             // 
+            this.btnSaveEdit.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSaveEdit.Enabled = false;
+            this.btnSaveEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveEdit.Image")));
+            this.btnSaveEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveEdit.Location = new System.Drawing.Point(587, 109);
             this.btnSaveEdit.Name = "btnSaveEdit";
             this.btnSaveEdit.Size = new System.Drawing.Size(84, 35);
             this.btnSaveEdit.TabIndex = 6;
             this.btnSaveEdit.Text = "Lưu";
-            this.btnSaveEdit.UseVisualStyleBackColor = true;
+            this.btnSaveEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveEdit.UseVisualStyleBackColor = false;
             this.btnSaveEdit.Click += new System.EventHandler(this.btnSaveEdit_Click);
             // 
             // btnSaveAdd
             // 
+            this.btnSaveAdd.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSaveAdd.Enabled = false;
+            this.btnSaveAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAdd.Image")));
+            this.btnSaveAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveAdd.Location = new System.Drawing.Point(503, 109);
             this.btnSaveAdd.Name = "btnSaveAdd";
             this.btnSaveAdd.Size = new System.Drawing.Size(84, 35);
             this.btnSaveAdd.TabIndex = 5;
             this.btnSaveAdd.Text = "Lưu";
-            this.btnSaveAdd.UseVisualStyleBackColor = true;
+            this.btnSaveAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveAdd.UseVisualStyleBackColor = false;
             this.btnSaveAdd.Click += new System.EventHandler(this.btnSaveAdd_Click);
             // 
             // rtbAddress
@@ -268,9 +294,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã NXB";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BookStore.Properties.Resources._32_user_search;
+            this.pictureBox1.Location = new System.Drawing.Point(383, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmPublisher
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 605);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -284,9 +321,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,12 +343,12 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btnSaveEdit;
         private System.Windows.Forms.Button btnSaveAdd;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

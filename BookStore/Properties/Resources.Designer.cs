@@ -83,6 +83,16 @@ namespace BookStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _32_arrow_left {
+            get {
+                object obj = ResourceManager.GetObject("32_arrow_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _32_arrow_redo {
             get {
                 object obj = ResourceManager.GetObject("32_arrow_redo", resourceCulture);
@@ -363,6 +373,16 @@ namespace BookStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap best_books_2015_wide_18ea71bcef7792d9fd6ea5183846999a06b17eee {
+            get {
+                object obj = ResourceManager.GetObject("best-books-2015_wide-18ea71bcef7792d9fd6ea5183846999a06b17eee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bullet_add {
             get {
                 object obj = ResourceManager.GetObject("bullet_add", resourceCulture);
@@ -386,6 +406,16 @@ namespace BookStore.Properties {
         internal static System.Drawing.Bitmap button_add {
             get {
                 object obj = ResourceManager.GetObject("button_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap e2c9e6e5eeb50fb71d2cec381d371fd0 {
+            get {
+                object obj = ResourceManager.GetObject("e2c9e6e5eeb50fb71d2cec381d371fd0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

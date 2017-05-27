@@ -32,7 +32,7 @@ namespace BookStore {
             string pass = txtPassword.Text;
             string phone = txtPhone.Text;
             string email = txtEmail.Text;
-
+            string passAgain = txtPassAgain.Text;
 
             // Kiểm tra các trường bỏ trống
             if (acc == "") {
@@ -43,7 +43,14 @@ namespace BookStore {
                 MessageBox.Show("Vui lòng nhập vào mật khẩu");
                 return;
             }
-
+            if (pass != passAgain) {
+                MessageBox.Show("Nhập lại mật khẩu");
+                return;
+            }
+            if (passAgain == "") {
+                MessageBox.Show("Vui lòng nhập lại mật khẩu");
+                return;
+            }
             // Kiểm tra tên tài khoản, mật khẩu đã tồn tại
             string strSQL1 = string.Format("SELECT * FROM NHANVIEN " +
                                           "where TENTAIKHOAN = '{0}'", acc);
@@ -72,6 +79,10 @@ namespace BookStore {
                 MessageBox.Show("Không thể đăng ký tài khoản này!");
                 throw;
             }
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e) {
+            this.AcceptButton = btnRegister;
         }
     }
 }

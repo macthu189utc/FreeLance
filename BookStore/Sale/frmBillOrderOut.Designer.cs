@@ -50,10 +50,10 @@
             // 
             // pictureBox1
             // 
-            //this.pictureBox1.Image = global::BookStore.Properties.Resources.zoom_search_2_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(282, 49);
+            this.pictureBox1.Image = global::BookStore.Properties.Resources._32_user_search;
+            this.pictureBox1.Location = new System.Drawing.Point(282, 54);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(29, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -70,7 +70,7 @@
             // 
             this.dgvBill.AllowUserToAddRows = false;
             this.dgvBill.AllowUserToDeleteRows = false;
-            this.dgvBill.BackgroundColor = System.Drawing.Color.Moccasin;
+            this.dgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBill.Location = new System.Drawing.Point(8, 127);
             this.dgvBill.Name = "dgvBill";
@@ -93,7 +93,7 @@
             // 
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
-            this.dgvDetail.BackgroundColor = System.Drawing.Color.Moccasin;
+            this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetail.Location = new System.Drawing.Point(9, 28);
             this.dgvDetail.Name = "dgvDetail";
@@ -104,6 +104,7 @@
             // frmBillOrderOut
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1139, 618);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

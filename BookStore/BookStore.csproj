@@ -127,6 +127,12 @@
     <Compile Include="Sale\frmBillOrderIn.Designer.cs">
       <DependentUpon>frmBillOrderIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sale\frmCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sale\frmCart.Designer.cs">
+      <DependentUpon>frmCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sale\frmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     <EmbeddedResource Include="Sale\frmBillOrderIn.resx">
       <DependentUpon>frmBillOrderIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sale\frmCart.resx">
+      <DependentUpon>frmCart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sale\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +215,7 @@
     <None Include="Resources\image.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\[Freelance]_BanSach.sql" />
     <None Include="Resources\Natsu FolderOpen.ico" />
     <None Include="Resources\images.jpg" />
     <None Include="Resources\write-circle-green-256.png" />
@@ -247,6 +257,9 @@
     <None Include="Resources\32_email.png" />
     <None Include="Resources\32_basket_add.png" />
     <None Include="Resources\32_459311991.jpg" />
+    <None Include="Resources\e2c9e6e5eeb50fb71d2cec381d371fd0.jpg" />
+    <None Include="Resources\best-books-2015_wide-18ea71bcef7792d9fd6ea5183846999a06b17eee.jpg" />
+    <None Include="Resources\32_arrow_left.png" />
     <Content Include="Resources\image10.jpg" />
     <Content Include="Resources\image11.jpg" />
     <Content Include="Resources\image12.jpg" />

@@ -23,13 +23,18 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnChooseImage = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPriceIn = new System.Windows.Forms.TextBox();
             this.cbbAuthor = new System.Windows.Forms.ComboBox();
             this.cbbPublisher = new System.Windows.Forms.ComboBox();
             this.txtNum = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
             this.cbbCategory = new System.Windows.Forms.ComboBox();
+            this.ptbImage = new System.Windows.Forms.PictureBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -45,26 +50,25 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnSaveEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtPriceIn = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnChooseImage = new System.Windows.Forms.Button();
-            this.ptbImage = new System.Windows.Forms.PictureBox();
+            this.btnSaveAdd = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSaveAdd);
             this.groupBox1.Controls.Add(this.btnChooseImage);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtPriceIn);
+            this.groupBox1.Controls.Add(this.btnSaveEdit);
             this.groupBox1.Controls.Add(this.cbbAuthor);
             this.groupBox1.Controls.Add(this.cbbPublisher);
             this.groupBox1.Controls.Add(this.txtNum);
@@ -89,6 +93,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sách";
             // 
+            // btnChooseImage
+            // 
+            this.btnChooseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseImage.Image = global::BookStore.Properties.Resources.Natsu_FolderOpen;
+            this.btnChooseImage.Location = new System.Drawing.Point(172, 25);
+            this.btnChooseImage.Name = "btnChooseImage";
+            this.btnChooseImage.Size = new System.Drawing.Size(35, 32);
+            this.btnChooseImage.TabIndex = 26;
+            this.btnChooseImage.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(222, 164);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 21);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Giá nhập";
+            // 
+            // txtPriceIn
+            // 
+            this.txtPriceIn.Enabled = false;
+            this.txtPriceIn.Location = new System.Drawing.Point(326, 164);
+            this.txtPriceIn.Name = "txtPriceIn";
+            this.txtPriceIn.Size = new System.Drawing.Size(129, 29);
+            this.txtPriceIn.TabIndex = 24;
+            // 
             // cbbAuthor
             // 
             this.cbbAuthor.Enabled = false;
@@ -110,7 +141,7 @@
             // txtNum
             // 
             this.txtNum.Enabled = false;
-            this.txtNum.Location = new System.Drawing.Point(988, 28);
+            this.txtNum.Location = new System.Drawing.Point(768, 28);
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(129, 29);
             this.txtNum.TabIndex = 21;
@@ -118,7 +149,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(909, 28);
+            this.label8.Location = new System.Drawing.Point(689, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 21);
             this.label8.TabIndex = 20;
@@ -142,6 +173,18 @@
             this.cbbCategory.Size = new System.Drawing.Size(129, 29);
             this.cbbCategory.TabIndex = 18;
             // 
+            // ptbImage
+            // 
+            this.ptbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbImage.Image = global::BookStore.Properties.Resources.images;
+            this.ptbImage.Location = new System.Drawing.Point(16, 25);
+            this.ptbImage.Name = "ptbImage";
+            this.ptbImage.Size = new System.Drawing.Size(155, 186);
+            this.ptbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbImage.TabIndex = 17;
+            this.ptbImage.TabStop = false;
+            // 
             // txtPrice
             // 
             this.txtPrice.Enabled = false;
@@ -155,7 +198,7 @@
             this.txtName.Enabled = false;
             this.txtName.Location = new System.Drawing.Point(326, 25);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(383, 29);
+            this.txtName.Size = new System.Drawing.Size(335, 29);
             this.txtName.TabIndex = 11;
             // 
             // txtID
@@ -252,7 +295,6 @@
             // 
             this.groupBox3.Controls.Add(this.btnExit);
             this.groupBox3.Controls.Add(this.btnCancel);
-            this.groupBox3.Controls.Add(this.btnSave);
             this.groupBox3.Controls.Add(this.btnDelete);
             this.groupBox3.Controls.Add(this.btnEdit);
             this.groupBox3.Controls.Add(this.btnAdd);
@@ -267,11 +309,14 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.LimeGreen;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Location = new System.Drawing.Point(787, 23);
+            this.btnExit.Image = global::BookStore.Properties.Resources._32_arrow_left;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(727, 23);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(84, 35);
+            this.btnExit.Size = new System.Drawing.Size(96, 35);
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "Trở lại";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExit.UseVisualStyleBackColor = false;
             // 
             // btnCancel
@@ -279,96 +324,87 @@
             this.btnCancel.BackColor = System.Drawing.Color.LimeGreen;
             this.btnCancel.Enabled = false;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(675, 23);
+            this.btnCancel.Image = global::BookStore.Properties.Resources._32_bullet_deny;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(615, 23);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(84, 35);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Huỷ";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // btnSave
+            // btnSaveEdit
             // 
-            this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(563, 23);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 35);
-            this.btnSave.TabIndex = 22;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSaveEdit.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnSaveEdit.Enabled = false;
+            this.btnSaveEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveEdit.Image = global::BookStore.Properties.Resources._32_bullet_accept;
+            this.btnSaveEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveEdit.Location = new System.Drawing.Point(1013, 24);
+            this.btnSaveEdit.Name = "btnSaveEdit";
+            this.btnSaveEdit.Size = new System.Drawing.Size(84, 35);
+            this.btnSaveEdit.TabIndex = 22;
+            this.btnSaveEdit.Text = "Lưu";
+            this.btnSaveEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveEdit.UseVisualStyleBackColor = false;
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.LimeGreen;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(451, 23);
+            this.btnDelete.Image = global::BookStore.Properties.Resources._32_bullet_delete;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(501, 23);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(84, 35);
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "Xoá";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.LimeGreen;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Location = new System.Drawing.Point(339, 23);
+            this.btnEdit.Image = global::BookStore.Properties.Resources.bullet_edit;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(389, 23);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(84, 35);
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "Sửa";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LimeGreen;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(227, 23);
+            this.btnAdd.Image = global::BookStore.Properties.Resources.bullet_add;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(268, 23);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(84, 35);
+            this.btnAdd.Size = new System.Drawing.Size(93, 35);
             this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // txtPriceIn
+            // btnSaveAdd
             // 
-            this.txtPriceIn.Enabled = false;
-            this.txtPriceIn.Location = new System.Drawing.Point(326, 164);
-            this.txtPriceIn.Name = "txtPriceIn";
-            this.txtPriceIn.Size = new System.Drawing.Size(129, 29);
-            this.txtPriceIn.TabIndex = 24;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(222, 164);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 21);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Giá nhập";
-            // 
-            // btnChooseImage
-            // 
-            this.btnChooseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseImage.Image = global::BookStore.Properties.Resources.Natsu_FolderOpen;
-            this.btnChooseImage.Location = new System.Drawing.Point(172, 25);
-            this.btnChooseImage.Name = "btnChooseImage";
-            this.btnChooseImage.Size = new System.Drawing.Size(35, 32);
-            this.btnChooseImage.TabIndex = 26;
-            this.btnChooseImage.UseVisualStyleBackColor = true;
-            // 
-            // ptbImage
-            // 
-            this.ptbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbImage.Image = global::BookStore.Properties.Resources.images;
-            this.ptbImage.Location = new System.Drawing.Point(16, 25);
-            this.ptbImage.Name = "ptbImage";
-            this.ptbImage.Size = new System.Drawing.Size(155, 186);
-            this.ptbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbImage.TabIndex = 17;
-            this.ptbImage.TabStop = false;
+            this.btnSaveAdd.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnSaveAdd.Enabled = false;
+            this.btnSaveAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveAdd.Image = global::BookStore.Properties.Resources._32_bullet_accept;
+            this.btnSaveAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveAdd.Location = new System.Drawing.Point(929, 24);
+            this.btnSaveAdd.Name = "btnSaveAdd";
+            this.btnSaveAdd.Size = new System.Drawing.Size(84, 35);
+            this.btnSaveAdd.TabIndex = 25;
+            this.btnSaveAdd.Text = "Lưu";
+            this.btnSaveAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveAdd.UseVisualStyleBackColor = false;
             // 
             // frmProduct
             // 
@@ -380,15 +416,16 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmProduct";
-            this.Text = "frmProduct";
+            this.Text = "Quản lý sách";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,7 +448,7 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnSaveEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
@@ -425,5 +462,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPriceIn;
         private System.Windows.Forms.Button btnChooseImage;
+        private System.Windows.Forms.Button btnSaveAdd;
     }
 }

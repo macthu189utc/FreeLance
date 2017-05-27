@@ -22,6 +22,8 @@ namespace BookStore.Admin {
         }
 
         //Attribute
+        private String nameImage = "images.jpg";
+        private String localPath = System.IO.Directory.GetCurrentDirectory();
         private DataTable myTable;
         private BindingSource myBindS;
         private string[] headerText = { "Mã sách", "Tên danh mục", "Tên sách", "Đơn giá bán", "Đơn giá nhập", "Số lượng kho", "Tên tác giả", "Mô tả", "Tên NXB" };
@@ -65,7 +67,7 @@ namespace BookStore.Admin {
         }
 
         //Event
-        private void frmCustomer_Load(object sender, EventArgs e) {
+        private void frmProduct_Load(object sender, EventArgs e) {
 
             // Lấy dữ liệu từ CSDL
             string strCL = "SELECT * FROM SACH";
@@ -118,33 +120,44 @@ namespace BookStore.Admin {
 
         private void btnAdd_Click(object sender, EventArgs e) {
             Enable();
-            btnSave.Enabled = true;
+            btnSaveAdd.Enabled = true;
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
         }
 
-        private void btnSaveAdd_Click(object sender, EventArgs e) {
-            if (txtName.Text == "" || txtNum.Text == "" || txtPrice.Text == "" || rtbDescription.Text == "" || txtPriceIn.Text == "") {
-                MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+        private void btnSave_Click(object sender, EventArgs e) {
+
+            if (true) {
+                if (txtName.Text == "" || txtNum.Text == "" || txtPrice.Text == "" || rtbDescription.Text == "" || txtPriceIn.Text == "") {
+                    MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                string name = txtName.Text;
+                string price = txtPrice.Text;
+                string num = txtNum.Text;
+                string priceIn = txtPriceIn.Text;
+                string publ = cbbPublisher.SelectedValue.ToString();
+                string author = cbbAuthor.SelectedValue.ToString();
+                string cate = cbbCategory.SelectedValue.ToString();
+                string descrip = rtbDescription.Text;
+                //string[] imgs = nameImage.Split('\\');
+                //string urlImage = nameImage;
+                //nameImage = imgs[imgs.Length - 1];
+                //if (imgs.Length > 1) {
+                //    if (!System.IO.File.Exists(localPath + @"\Resources\" + nameImage)) {
+                //        System.IO.File.Copy(urlImage, localPath + @"\Resources\" + imgs[imgs.Length - 1]);
+                //    }
+
+                //}
+
+                string sql = string.Format("INSERT INTO SACH VALUES ('{0}', '{1}', N'{2}', '{3}', '{4}', '{5}', '{6}', N'{7}', '{8}', '{9}')", cate, name, price, priceIn, num, author, descrip, "-", publ);
+                db.UpdataData(sql);
+
+                MessageBox.Show("Thêm mới thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmProduct_Load(null, null);
+                Empty();
+                btnSaveAdd.Enabled = false;
             }
-            string name = txtName.Text;
-            string price = txtPrice.Text;
-            string num = txtNum.Text;
-            string priceIn = txtPriceIn.Text;
-            string publ = cbbPublisher.SelectedValue.ToString();
-            string author = cbbAuthor.SelectedValue.ToString();
-            string cate = cbbCategory.SelectedValue.ToString();
-            string descrip = rtbDescription.Text;
-
-
-            string sql = string.Format("INSERT INTO SACH VALUES ('{0}', '{1}', N'{2}', '{3}', '{4}', '{5}', '{6}', N'{7}', '{8}', '{9}')", cate, name, price, priceIn, num, author, descrip, "-", publ);
-            db.UpdataData(sql);
-
-            MessageBox.Show("Thêm mới thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            frmCustomer_Load(null, null);
-            Empty();
-            btnSave.Enabled = false;
         }
 
         private void btnEdit_Click(object sender, EventArgs e) {
@@ -169,7 +182,7 @@ namespace BookStore.Admin {
                 Enable();
                 btnAdd.Enabled = false;
                 btnDelete.Enabled = false;
-                btnSave.Enabled = true;
+                btnSaveEdit.Enabled = true;
 
                 txtID.Text = id;
                 txtName.Text = name;
@@ -185,25 +198,33 @@ namespace BookStore.Admin {
 
             }
             catch (Exception) {
-                MessageBox.Show("Bạn phải chọn khách hàng muốn sửa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bạn phải chọn sách muốn sửa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnSaveEdit_Click(object sender, EventArgs e) {
-            if (txtName.Text == "") {
+            if (txtName.Text == "" || txtNum.Text == "" || txtPrice.Text == "" || rtbDescription.Text == "" || txtPriceIn.Text == "") {
                 MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             int id = int.Parse(txtID.Text);
+            string idCate = cbbCategory.SelectedValue.ToString();
             string name = txtName.Text;
+            int priceOut = int.Parse(txtPrice.Text);
+            int priceIn = int.Parse(txtPriceIn.Text);
+            int num = int.Parse(txtNum.Text);
+            int idAuthor = int.Parse(cbbAuthor.SelectedValue.ToString());
+            string descrip = rtbDescription.Text;
 
-            string strSQL = string.Format("UPDATE KHACHHANG SET TENKHACHHANG = N'{0}', EMAIL = '{1}', SODIENTHOAI = '{2}', DIACHI = N'{3}' WHERE MAKHACHHANG = '{4}'",
+
+
+            string strSQL = string.Format("UPDATE SACH SET TENSACH = N'{0}', EMAIL = '{1}', SODIENTHOAI = '{2}', DIACHI = N'{3}' WHERE MASACH = '{4}'",
                 name, id);
             db.UpdataData(strSQL);
             MessageBox.Show("Sửa thành công khách hàng có mã là " + id, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            frmCustomer_Load(null, null);
+            frmProduct_Load(null, null);
             Empty();
-            btnSave.Enabled = false;
+            btnSaveEdit.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
@@ -211,22 +232,24 @@ namespace BookStore.Admin {
             string id = dgvData.Rows[dgvData.SelectedRows[0].Index].Cells[0].Value.ToString();
 
             //Lấy ra số bản ghi liên quan đến nhân viên có id vừa lấy
-            string numRecordBillOut = "SELECT count(*) FROM HOADONXUAT WHERE MAKHACHHANG = '" + id + "'";
+            string numRecordBillOut = "SELECT count(*) FROM HOADONXUAT WHERE MASACH = '" + id + "'";
+            string numRecordBillIn = "SELECT count(*) FROM HOADONNHAP WHERE MASACH = '" + id + "'";
 
             //Đếm bản ghi
-            int numBillIn = db.CountRecord(numRecordBillOut);
+            int numBillOut = db.CountRecord(numRecordBillOut);
+            int numBillIn = db.CountRecord(numRecordBillIn);
 
-            DialogResult kq = MessageBox.Show("Có " + (numBillIn) + " dữ liệu liên quan đến " + id + " này! \nBạn có muốn xóa không?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult kq = MessageBox.Show("Có " + (numBillOut + numBillIn) + " dữ liệu liên quan đến " + id + " này! \nBạn có muốn xóa không?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (kq == DialogResult.Yes) {
-                if (numBillIn > 0) {
-                    MessageBox.Show("Có " + (numBillIn) + " dữ liệu liên quan đến Mã này. \nBạn không thể xóa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (numBillOut > 0 || numBillIn > 0) {
+                    MessageBox.Show("Có " + (numBillOut + numBillIn) + " dữ liệu liên quan đến Mã này. \nBạn không thể xóa!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else {
-                    string delete = "DELETE FROM KHACHHANG WHERE MAKHACHHANG = '" + id + "'";
+                    string delete = "DELETE FROM SACH WHERE MASACH = '" + id + "'";
                     db.UpdataData(delete);
 
                     MessageBox.Show("Xóa thành công", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmCustomer_Load(null, null);
+                    frmProduct_Load(null, null);
                 }
                 return;
             }
@@ -234,7 +257,8 @@ namespace BookStore.Admin {
 
         private void btnCancel_Click(object sender, EventArgs e) {
             Empty();
-            btnSave.Enabled = false;
+            btnSaveEdit.Enabled = false;
+            btnSaveAdd.Enabled = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e) {

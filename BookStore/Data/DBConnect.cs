@@ -12,6 +12,8 @@ namespace BookStore.Data {
         public static int BOPHAN = 1;
         public static int ADMIN = 2;
         public static int BANHANG = 1;
+        public static string TENNHANVIEN = "Dương";
+        public static string MANHANVIEN = "2";
 
         // Tạo kết nối
         string strConnect = "Data Source=BANH-MY\\BANHMY;Initial Catalog=BANSACH;Integrated Security=True";

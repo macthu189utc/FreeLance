@@ -33,7 +33,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassAgain = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(61, 82);
+            this.txtPassword.Location = new System.Drawing.Point(61, 77);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -65,7 +65,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.Black;
-            this.btnRegister.Location = new System.Drawing.Point(22, 420);
+            this.btnRegister.Location = new System.Drawing.Point(36, 306);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(105, 37);
@@ -80,7 +80,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(147, 420);
+            this.btnExit.Location = new System.Drawing.Point(161, 306);
             this.btnExit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(105, 37);
@@ -95,15 +95,16 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(219, 34);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 5;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(61, 186);
+            this.txtPhone.Location = new System.Drawing.Point(61, 191);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(219, 34);
-            this.txtPhone.TabIndex = 3;
+            this.txtPhone.TabIndex = 4;
             // 
             // pictureBox5
             // 
@@ -153,14 +154,14 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // txtPassAgain
             // 
-            this.textBox1.Location = new System.Drawing.Point(61, 130);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(219, 34);
-            this.textBox1.TabIndex = 28;
+            this.txtPassAgain.Location = new System.Drawing.Point(61, 134);
+            this.txtPassAgain.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.txtPassAgain.Name = "txtPassAgain";
+            this.txtPassAgain.PasswordChar = '*';
+            this.txtPassAgain.Size = new System.Drawing.Size(219, 34);
+            this.txtPassAgain.TabIndex = 3;
             // 
             // pictureBox3
             // 
@@ -179,9 +180,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(645, 482);
+            this.ClientSize = new System.Drawing.Size(303, 369);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassAgain);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.pictureBox4);
@@ -218,7 +219,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassAgain;
         private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

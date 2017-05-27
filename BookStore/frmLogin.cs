@@ -26,7 +26,7 @@ namespace BookStore {
         }
 
         private void btnExit_Click(object sender, EventArgs e) {
-            this.Close();
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e) {
@@ -63,14 +63,19 @@ namespace BookStore {
                 }
 
                 lbError.Visible = false;
-                this.AcceptButton = btnLogin;
+                //this.AcceptButton = btnLogin;
                 this.Hide();
                 int role = int.Parse(data.Rows[0]["MABOPHAN"].ToString());
                 frmMain fMain = new frmMain();
                 DBConnect.BOPHAN = role;
+                DBConnect.TENNHANVIEN = data.Rows[0]["TENNHANVIEN"].ToString();
                 fMain.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e) {
+            this.AcceptButton = btnLogin;
         }
     }
 }
