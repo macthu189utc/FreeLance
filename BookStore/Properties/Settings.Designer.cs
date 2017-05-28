@@ -33,5 +33,15 @@ namespace BookStore.Properties {
                 return ((string)(this["BANSACHConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BANH-MY\\BANHMY;Initial Catalog=BANSACH;Integrated Security=True")]
+        public string BOOKSTOREConnectionString {
+            get {
+                return ((string)(this["BOOKSTOREConnectionString"]));
+            }
+        }
     }
 }

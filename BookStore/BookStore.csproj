@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,6 +91,11 @@
     <Compile Include="Admin\frmStaff.Designer.cs">
       <DependentUpon>frmStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="BANSACHDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BANSACHDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ComboBoxItem.cs" />
     <Compile Include="Data\DBConnect.cs" />
     <Compile Include="frmAbout.cs">
@@ -121,6 +129,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmReportStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmReportStaff.Designer.cs">
+      <DependentUpon>frmReportStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="Sale\frmBillOrderIn.cs">
       <SubType>Form</SubType>
@@ -190,6 +204,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportBook.rdlc" />
+    <EmbeddedResource Include="Report\frmReportStaff.resx">
+      <DependentUpon>frmReportStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sale\frmBillOrderIn.resx">
       <DependentUpon>frmBillOrderIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +223,17 @@
     <EmbeddedResource Include="Sale\frmOrderIn.resx">
       <DependentUpon>frmOrderIn.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BANSACHDataSet.xsc">
+      <DependentUpon>BANSACHDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BANSACHDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BANSACHDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BANSACHDataSet.xss">
+      <DependentUpon>BANSACHDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

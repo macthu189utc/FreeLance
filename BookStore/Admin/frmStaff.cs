@@ -106,6 +106,8 @@ namespace BookStore.Admin {
             else {
                 rbMale.Checked = true;
             }
+
+
         }
 
         //Event
@@ -164,6 +166,7 @@ namespace BookStore.Admin {
 
         //Start Add
         private void btnAdd_Click(object sender, EventArgs e) {
+            Empty();
             Enable();
             btnSaveAdd.Enabled = true;
             btnEdit.Enabled = false;

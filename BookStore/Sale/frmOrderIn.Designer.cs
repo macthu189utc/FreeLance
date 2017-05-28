@@ -205,6 +205,7 @@
             this.dgvOrder.AllowUserToDeleteRows = false;
             this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvOrder.Location = new System.Drawing.Point(11, 30);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
@@ -396,12 +397,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mDelete});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(95, 26);
             // 
             // mDelete
             // 
             this.mDelete.Name = "mDelete";
-            this.mDelete.Size = new System.Drawing.Size(152, 22);
+            this.mDelete.Size = new System.Drawing.Size(94, 22);
             this.mDelete.Text = "Xoá";
             this.mDelete.Click += new System.EventHandler(this.mDelete_Click);
             // 

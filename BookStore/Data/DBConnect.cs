@@ -33,7 +33,7 @@ namespace BookStore.Data {
             connect.Dispose();
         }
 
-        // Thực thi câu lệnh dạng Select trả về một DataTable
+        //Lấy ra dữ liệu từ CSDL
         public DataTable GetData(string sql) {
             DataTable db = new DataTable();
             ConnectData();
