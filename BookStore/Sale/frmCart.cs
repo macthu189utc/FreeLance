@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,12 @@ namespace BookStore.Sale {
 
         public frmCart() {
             InitializeComponent();
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOrder.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.StartPosition = FormStartPosition.CenterScreen;
-            myTable = new DataTable();
-            myTableOrder = new DataTable();
+            WindowState = FormWindowState.Maximized;
             tableCus = new DataTable();
+            myTable = new DataTable();
             myBindS = new BindingSource();
             lbNameStaff.Text = DBConnect.TENNHANVIEN;
 
@@ -28,15 +31,45 @@ namespace BookStore.Sale {
         private DataTable myTable;
         private DataTable myTableOrder;
         private BindingSource myBindS;
+        private MakeToString changeMoney;
+
         private string[] headerText = { "Mã sách", "Tên sách", "Tên danh mục", "Tên tác giả", "Mô tả", "Tên NXB", "Số lượng", "Đơn giá" };
-        private int[] size = { 15, 25, 20, 20, 15, 15, 10, 20 };
+        private int[] size = { 0, 25, 20, 20, 15, 15, 10, 20 };
 
-        private string[] headerTextOrder = { "Mã sách", "Tên sách", "Số lượng", "Đơn giá" };
-        private int[] sizeOrder = { 15, 25, 20, 20 };
+        private string[] headerTextOrder = { "Tên sách", "Đơn giá", "Số lượng", "Thành tiền", "Mã sách" };
+        private int[] sizeOrder = { 30, 25, 15, 30, 0 };
 
+        //Method
+        private void Money() {
+            double sumMoney = 0;
 
-        public void GetData() {
-            // Lấy dữ liệu từ CSDL
+            // Duyệt vòng lặp bảng hóa đơn, tính tiền
+            for (int i = 0; i < myTableOrder.Rows.Count; i++) {
+                double temp = double.Parse(myTableOrder.Rows[i][3].ToString());
+                sumMoney += temp;
+            }
+
+            // In số tiền vào ô tổng tiền bằng số.
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+            lbCountMoney.Text = sumMoney.ToString("#,###", cul.NumberFormat) + " VNĐ";
+            if (sumMoney == 0) {
+                lbCountMoney.Text = "0 VNĐ";
+                rtbMoneyWord.Text = "";
+            }
+            else {
+                // In ra số tiền bằng chữ
+                changeMoney = new MakeToString(sumMoney);
+                changeMoney.thucHienDoiTien();
+                rtbMoneyWord.Text = changeMoney.ReadThis() + " đồng";
+            }
+        }
+
+        private void frmCart_Load(object sender, EventArgs e) {
+            if (DBConnect.BOPHAN == DBConnect.BANHANG) {
+
+            }
+
+            //Lấy dữ liệu từ bảng sách
             string strCL = "SELECT MASACH, TENSACH, TENDANHMUC, TENTACGIA, MOTA, TENNHAXUATBAN, SOLUONGTON, DONGIABAN, ANHBIA FROM SACH"
                          + " INNER JOIN DANHMUC ON DANHMUC.MADANHMUC = SACH.MADANHMUC"
                          + " INNER JOIN TACGIA ON TACGIA.MATACGIA = SACH.MATACGIA"
@@ -53,26 +86,20 @@ namespace BookStore.Sale {
                 dgvData.Columns[i].Width = ((dgvData.Width) / 100) * size[i];
             }
 
-            this.dgvData.Columns[7].Visible = false;
+            this.dgvData.Columns["ANHBIA"].Visible = false;
 
-            // Chọn theo chế độ cả hàng
-            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
+            myTableOrder = new DataTable();
+            dgvOrder.DataSource = myTableOrder;
 
-        private void frmCart_Load(object sender, EventArgs e) {
-            if (DBConnect.BOPHAN == DBConnect.BANHANG) {
-
+            // Setup bảng hóa đơn
+            for (int i = 0; i < headerTextOrder.Length; i++) {
+                myTableOrder.Columns.Add(headerTextOrder[i]);
             }
 
-            //Lấy dữ liệu từ bảng sách
-            GetData();
-
-            //Lấy tên nhân viên đăng nhập
-            // Gán nhân viên
-            //string strCmd = "Select TENNHANVIEN from NHANVIEN where MANHANVIEN = '" + IdStaff + "'";
-            //string nameStaff = db.GetName(strCmd);
-            //lbNameStaff.Text = nameStaff;
-
+            for (int i = 0; i < headerTextOrder.Length; i++) {
+                dgvOrder.Columns[i].Width = (dgvOrder.Width / 100) * sizeOrder[i];
+                dgvOrder.Columns[i].HeaderText = headerTextOrder[i];
+            }
             //Đổ dữ liệu khách hàng cho cbb
             string sqlCus = "Select MAKHACHHANG, TENKHACHHANG from KHACHHANG";
             DataTable dt = db.GetData(sqlCus);
@@ -96,33 +123,35 @@ namespace BookStore.Sale {
             if (choose_ing >= 0) {
                 // Đặt lại ảnh
                 string urlImage = dgvData.Rows[choose_ing].Cells["ANHBIA"].Value.ToString();
-                ptbBook.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + "\\Resources\\" + urlImage);
+                ptbBook.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + "\\images\\" + urlImage);
 
             }
         }
 
         private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
-            //Lấy ra ID
-            string id = dgvData.Rows[dgvData.SelectedRows[0].Index].Cells[0].Value.ToString();
-            //Select data theo ID vừa lấy
-            string strCL = "SELECT MASACH, TENSACH, SOLUONGTON, DONGIABAN FROM SACH"
-                         + " WHERE MASACH = '" + id + "'";
-            myTableOrder = db.GetData(strCL);
-            GetData();
-            //Đổ vào dgvOrder
-            // Gán dl bảng vào binding, binding gán vào dgv
-            myBindS.DataSource = myTableOrder;
-            dgvOrder.DataSource = myBindS;
-
-            // Set size + headerText cho dgv
-            for (int i = 0; i < headerTextOrder.Length; i++) {
-                dgvOrder.Columns[i].HeaderText = headerTextOrder[i];
-                dgvOrder.Columns[i].Width = ((dgvOrder.Width) / 100) * sizeOrder[i];
+            // Kiểm tra số lượng có thỏa mãn
+            int index = dgvData.SelectedRows[0].Index;
+            if (index < 0)
+                MessageBox.Show("Vui lòng chọn sản phẩm cần thêm");
+            int numInventory = int.Parse(myTable.Rows[index]["SOLUONGTON"].ToString());
+            int numAdd = 1;
+            if (numAdd > numInventory) {
+                MessageBox.Show("Số lượng không hợp lệ");
+                return;
             }
-            //dgvOrder.Columns["SOLUONGTON"].DefaultCellStyle.NullValue = "1";
 
-            // Chọn theo chế độ cả hàng
-            dgvOrder.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            // Tinh so luong con lai
+            int numAfterInput = numInventory - numAdd;
+            myTable.Rows[index]["SOLUONGTON"] = numAfterInput;
+
+            // Lấy dữ liệu bên bảng sản phẩm, tính toán và đưa sang bảng hóa đơn
+            string name = myTable.Rows[index]["TENSACH"].ToString();
+            int price = int.Parse(myTable.Rows[index]["DONGIABAN"].ToString());
+            string id = myTable.Rows[index]["MASACH"].ToString();
+            int sumMoney = price * numAdd;
+            myTableOrder.Rows.Add(name, price, numAdd, sumMoney, id);
+
+            Money();
         }
 
         private void ptbAddCustomer_Click(object sender, EventArgs e) {
@@ -147,6 +176,102 @@ namespace BookStore.Sale {
                                        txtSearch.Text, txtSearch.Text, txtSearch.Text, txtSearch.Text);
             myBindS.Filter = loc;
             dgvData.DataSource = myBindS;
+        }
+
+        private void dgvOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            // Kiểm tra điều kiện
+            int index = -1;
+            try {
+                index = dgvOrder.SelectedRows[0].Index;
+            }
+            catch (Exception exception) {
+                MessageBox.Show("Vui lòng chọn sản phẩm xóa");
+                return;
+            }
+
+            // Lấy ra số lượng bên hóa đơn
+            int soluonghoadon = int.Parse(myTableOrder.Rows[index][2].ToString());
+
+            int index2 = -1;
+            string mahang = myTableOrder.Rows[index][4].ToString();
+
+            // Lấy ra index cần cộng bên bảng sản phẩm
+            for (int i = 0; i < myTable.Rows.Count; i++) {
+                if (mahang.Equals(myTable.Rows[i]["MASACH"].ToString())) {
+                    index2 = i;
+                    break;
+                }
+            }
+
+            // Cộng vào bảng sản phẩm
+            int soluongbangsanphamcu = int.Parse(myTable.Rows[index2]["SOLUONGTON"].ToString());
+            int soluongbangsanphammoi = soluongbangsanphamcu + soluonghoadon;
+            myTable.Rows[index2]["SOLUONGTON"] = soluongbangsanphammoi;
+
+            // Xóa dòng bên bảng hóa đơn
+            myTableOrder.Rows.RemoveAt(index);
+
+            Money();
+        }
+
+        private void btnPay_Click(object sender, EventArgs e) {
+            try {
+                // Kiểm tra trước khi thanh toán
+                if (myTableOrder.Rows.Count < 1) {
+                    MessageBox.Show("Chưa có hàng trong hóa đơn");
+                    return;
+                }
+
+                if (MessageBox.Show("Bạn có muốn thanh toán", "Xác nhận", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Information) == DialogResult.No) {
+                    return;
+                }
+                // Cập nhật hóa đơn bán
+                int idCus = int.Parse(cbbCustomer.SelectedValue.ToString());
+                string idStaff = DBConnect.MANHANVIEN;
+                DateTime dateOut = DateTime.Parse(dtpDateOrder.Value.ToShortDateString());
+
+                String sql = string.Format("INSERT INTO HOADONXUAT (MANHANVIEN, MAKHACHHANG, NGAYXUAT) VALUES( '{0}', '{1}', '{2}')",
+                        idStaff, idCus, dateOut);
+                db.UpdataData(sql);
+
+                // Cập nhật chi tiết HD xuất
+                sql = "select max(MAHOADON) as 'MAHOADON' from HOADONXUAT";
+                string id = db.GetData(sql).Rows[0][0].ToString();
+                string idBook;
+                string price;
+                string num;
+
+                for (int i = 0; i < myTableOrder.Rows.Count; i++) {
+                    idBook = myTableOrder.Rows[i][4].ToString();
+                    price = myTableOrder.Rows[i][1].ToString();
+                    num = myTableOrder.Rows[i][2].ToString();
+                    sql = string.Format("INSERT INTO CHITIETHOADONXUAT(MAHOADON, MASACH, DONGIA, SOLUONG) VALUES('{0}', '{1}', '{2}', '{3}')", id, idBook, price, num);
+                    db.UpdataData(sql);
+                }
+
+                // Cập nhật sản phẩm (số lượng)
+                for (int i = 0; i < myTable.Rows.Count; i++) {
+                    idBook = myTable.Rows[i]["MASACH"].ToString();
+                    num = myTable.Rows[i]["SOLUONGTON"].ToString();
+                    sql = string.Format("UPDATE SACH SET SOLUONGTON = '{0}'  WHERE MASACH = '{1}'", num, idBook);
+                    db.UpdataData(sql);
+                }
+
+                MessageBox.Show("Thanh toán thành công");
+                rtbMoneyWord.Text = "";
+                lbCountMoney.Text = "";
+                frmCart_Load(null, null);
+            }
+            catch (Exception) {
+                MessageBox.Show("Bạn chưa chọn khách hàng", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            rtbMoneyWord.Text = "";
+            lbCountMoney.Text = "";
+            frmCart_Load(null, null);
         }
     }
 }

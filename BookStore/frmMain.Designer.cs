@@ -52,7 +52,7 @@
             this.mnLogout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1266, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1341, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -164,7 +164,7 @@
             // 
             this.btnCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCart.Image = global::BookStore.Properties.Resources._32_basket_full;
-            this.btnCart.Location = new System.Drawing.Point(1220, 23);
+            this.btnCart.Location = new System.Drawing.Point(1294, 25);
             this.btnCart.Name = "btnCart";
             this.btnCart.Size = new System.Drawing.Size(46, 46);
             this.btnCart.TabIndex = 4;
@@ -200,7 +200,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::BookStore.Properties.Resources.best_books_2015_wide_18ea71bcef7792d9fd6ea5183846999a06b17eee;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1266, 621);
+            this.ClientSize = new System.Drawing.Size(1341, 680);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCart);

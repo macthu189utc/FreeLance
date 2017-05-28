@@ -22,10 +22,21 @@ namespace BookStore.Admin {
         }
 
         //Attribute
+        private string nameCate;
         private DataTable myTable;
         private BindingSource myBindS;
         private string[] headerText = { "Mã danh mục", "Tên danh mục"};
         private int[] size = { 40, 65 };
+
+        public string NameCate {
+            get {
+                return nameCate;
+            }
+
+            set {
+                nameCate = value;
+            }
+        }
 
 
         //Method
@@ -90,6 +101,8 @@ namespace BookStore.Admin {
             MessageBox.Show("Thêm mới thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmCategory_Load(null, null);
             Empty();
+            this.DialogResult = DialogResult.OK;
+            this.NameCate = txtName.Text;
         }
 
         private void btnEdit_Click(object sender, EventArgs e) {

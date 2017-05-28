@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.ptbAddCustomer = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -63,20 +64,21 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
             this.groupBox1.Location = new System.Drawing.Point(8, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 583);
+            this.groupBox1.Size = new System.Drawing.Size(659, 656);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách sách";
             // 
             // dgvData
             // 
+            this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Location = new System.Drawing.Point(8, 226);
+            this.dgvData.Location = new System.Drawing.Point(14, 226);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            this.dgvData.Size = new System.Drawing.Size(609, 348);
+            this.dgvData.Size = new System.Drawing.Size(629, 413);
             this.dgvData.TabIndex = 6;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
             this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
@@ -84,7 +86,7 @@
             // ptbBook
             // 
             this.ptbBook.Image = global::BookStore.Properties.Resources.image;
-            this.ptbBook.Location = new System.Drawing.Point(453, 23);
+            this.ptbBook.Location = new System.Drawing.Point(483, 23);
             this.ptbBook.Name = "ptbBook";
             this.ptbBook.Size = new System.Drawing.Size(160, 190);
             this.ptbBook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,7 +97,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::BookStore.Properties.Resources._32_user_search;
-            this.pictureBox1.Location = new System.Drawing.Point(321, 109);
+            this.pictureBox1.Location = new System.Drawing.Point(326, 94);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +108,7 @@
             // 
             this.txtSearch.BackColor = System.Drawing.Color.White;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtSearch.Location = new System.Drawing.Point(28, 109);
+            this.txtSearch.Location = new System.Drawing.Point(33, 94);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(293, 29);
             this.txtSearch.TabIndex = 3;
@@ -155,21 +157,23 @@
             // 
             // dgvOrder
             // 
+            this.dgvOrder.AllowUserToAddRows = false;
             this.dgvOrder.AllowUserToDeleteRows = false;
             this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Location = new System.Drawing.Point(12, 26);
+            this.dgvOrder.Location = new System.Drawing.Point(11, 30);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
-            this.dgvOrder.Size = new System.Drawing.Size(563, 259);
+            this.dgvOrder.Size = new System.Drawing.Size(604, 307);
             this.dgvOrder.TabIndex = 6;
+            this.dgvOrder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellDoubleClick);
             // 
             // lbNameStaff
             // 
             this.lbNameStaff.AutoSize = true;
             this.lbNameStaff.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbNameStaff.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbNameStaff.Location = new System.Drawing.Point(502, 23);
+            this.lbNameStaff.Location = new System.Drawing.Point(537, 23);
             this.lbNameStaff.Name = "lbNameStaff";
             this.lbNameStaff.Size = new System.Drawing.Size(52, 21);
             this.lbNameStaff.TabIndex = 12;
@@ -180,24 +184,25 @@
             // 
             this.btnPay.BackColor = System.Drawing.Color.LimeGreen;
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnPay.ForeColor = System.Drawing.Color.Black;
             this.btnPay.Image = global::BookStore.Properties.Resources._32_basket_add;
             this.btnPay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPay.Location = new System.Drawing.Point(57, 485);
+            this.btnPay.Location = new System.Drawing.Point(74, 534);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(146, 44);
+            this.btnPay.Size = new System.Drawing.Size(141, 38);
             this.btnPay.TabIndex = 11;
             this.btnPay.Text = "Thanh toán";
             this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // rtbMoneyWord
             // 
             this.rtbMoneyWord.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.rtbMoneyWord.Location = new System.Drawing.Point(354, 505);
+            this.rtbMoneyWord.Location = new System.Drawing.Point(390, 561);
             this.rtbMoneyWord.Name = "rtbMoneyWord";
-            this.rtbMoneyWord.Size = new System.Drawing.Size(245, 69);
+            this.rtbMoneyWord.Size = new System.Drawing.Size(245, 78);
             this.rtbMoneyWord.TabIndex = 10;
             this.rtbMoneyWord.Text = "";
             // 
@@ -206,7 +211,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(274, 508);
+            this.label4.Location = new System.Drawing.Point(310, 564);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 21);
             this.label4.TabIndex = 9;
@@ -215,7 +220,7 @@
             // lbCountMoney
             // 
             this.lbCountMoney.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbCountMoney.Location = new System.Drawing.Point(420, 454);
+            this.lbCountMoney.Location = new System.Drawing.Point(456, 510);
             this.lbCountMoney.Name = "lbCountMoney";
             this.lbCountMoney.Size = new System.Drawing.Size(181, 37);
             this.lbCountMoney.TabIndex = 9;
@@ -227,7 +232,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(276, 454);
+            this.label3.Location = new System.Drawing.Point(312, 510);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 21);
             this.label3.TabIndex = 9;
@@ -237,15 +242,16 @@
             // 
             this.groupBox3.Controls.Add(this.dgvOrder);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.groupBox3.Location = new System.Drawing.Point(14, 155);
+            this.groupBox3.Location = new System.Drawing.Point(12, 155);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(587, 291);
+            this.groupBox3.Size = new System.Drawing.Size(625, 352);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách mặt hàng";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnCancel);
             this.groupBox2.Controls.Add(this.lbNameStaff);
             this.groupBox2.Controls.Add(this.ptbAddCustomer);
             this.groupBox2.Controls.Add(this.btnPay);
@@ -260,12 +266,29 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox2.ForeColor = System.Drawing.Color.Red;
-            this.groupBox2.Location = new System.Drawing.Point(645, 12);
+            this.groupBox2.Location = new System.Drawing.Point(681, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(614, 583);
+            this.groupBox2.Size = new System.Drawing.Size(650, 656);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Giỏ hàng";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Image = global::BookStore.Properties.Resources._32_bullet_deny;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(74, 584);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(120, 38);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Huỷ đơn";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ptbAddCustomer
             // 
@@ -284,7 +307,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1266, 621);
+            this.ClientSize = new System.Drawing.Size(1344, 681);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -328,5 +351,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox ptbAddCustomer;
         private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

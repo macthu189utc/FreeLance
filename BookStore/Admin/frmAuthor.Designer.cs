@@ -253,6 +253,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::BookStore.Properties.Resources._32_user_search;
             this.pictureBox1.Location = new System.Drawing.Point(392, 43);
             this.pictureBox1.Name = "pictureBox1";

@@ -22,10 +22,21 @@ namespace BookStore.Admin {
         }
 
         //Attribute
+        private string namePro;
         private DataTable myTable;
         private BindingSource myBindS;
         private string[] headerText = { "Mã NCC", "Tên nhà cung cấp", "SĐT", "Địa chỉ" };
         private int[] size = { 15, 33, 25, 30 };
+
+        public string NamePro {
+            get {
+                return namePro;
+            }
+
+            set {
+                namePro = value;
+            }
+        }
 
 
         //Method
@@ -98,6 +109,8 @@ namespace BookStore.Admin {
             MessageBox.Show("Thêm mới thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmProvider_Load(null, null);
             Empty();
+            this.DialogResult = DialogResult.OK;
+            this.NamePro = txtName.Text;
         }
 
         private void btnEdit_Click(object sender, EventArgs e) {

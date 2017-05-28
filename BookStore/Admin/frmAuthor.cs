@@ -21,10 +21,21 @@ namespace BookStore.Admin {
         }
 
         //Attribute
+        private string nameAuthor;
         private DataTable myTable;
         private BindingSource myBindS;
         private string[] headerText = { "Mã tác giả", "Tên tác giả" };
         private int[] size = { 40, 65 };
+
+        public string NameAuthor {
+            get {
+                return nameAuthor;
+            }
+
+            set {
+                nameAuthor = value;
+            }
+        }
 
 
         //Method
@@ -89,6 +100,8 @@ namespace BookStore.Admin {
             MessageBox.Show("Thêm mới thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmAuthor_Load(null, null);
             Empty();
+            this.DialogResult = DialogResult.OK;
+            this.NameAuthor = txtName.Text;
         }
 
         private void btnEdit_Click(object sender, EventArgs e) {

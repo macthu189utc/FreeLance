@@ -56,16 +56,16 @@ namespace BookStore.Data {
             return numRecord;
         }
 
-        public string GetName(string sql) {
-            string name = "";
-            DataTable dt = new DataTable();
-            ConnectData();
-            SqlDataAdapter sqldataAdapter = new SqlDataAdapter(sql, connect);
-            sqldataAdapter.Fill(dt);
-            name = dt.Rows[0][0].ToString();
-            ConnectClose();
-            return name;
-        }
+        //public string GetName(string sql) {
+        //    string name = "";
+        //    DataTable dt = new DataTable();
+        //    ConnectData();
+        //    SqlDataAdapter sqldataAdapter = new SqlDataAdapter(sql, connect);
+        //    sqldataAdapter.Fill(dt);
+        //    name = dt.Rows[0][0].ToString();
+        //    ConnectClose();
+        //    return name;
+        //}
 
 
         // Hàm thực hiện lệnh Insert or Update or Delete

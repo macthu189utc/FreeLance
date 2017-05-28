@@ -19,6 +19,7 @@ namespace BookStore {
         public frmMain() {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
             label1.BackColor = Color.Transparent;
             lbName.BackColor = Color.Transparent;
             if (DBConnect.BOPHAN == DBConnect.BANHANG) {
