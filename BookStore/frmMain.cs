@@ -16,7 +16,6 @@ namespace BookStore {
     public partial class frmMain : Form {
 
         DBConnect db = new DBConnect();
-
         public frmMain() {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -28,6 +27,10 @@ namespace BookStore {
             }
 
             lbName.Text = DBConnect.TENNHANVIEN;
+
+            notifyIcon1.Icon = new System.Drawing.Icon(@"Image//icon.ico");
+            notifyIcon1.Text = "My Applicaiton";
+            notifyIcon1.Visible = true;
         }
 
         private void mnProduct_Click(object sender, EventArgs e) {
@@ -84,7 +87,12 @@ namespace BookStore {
         }
 
         private void frmMain_Load(object sender, EventArgs e) {
-            
+            notifyIcon1.Icon = new System.Drawing.Icon(@"Image//icon.ico");
+            //notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIcon1.BalloonTipText = "My Application";
+            notifyIcon1.BalloonTipTitle = "Xin chào";
+
+            notifyIcon1.ShowBalloonTip(1000);
         }
 
         private void btnCart_Click(object sender, EventArgs e) {
@@ -97,6 +105,24 @@ namespace BookStore {
         private void mniReport_Click(object sender, EventArgs e) {
             frmReport fReport = new frmReport();
             fReport.ShowDialog();
+        }
+
+        private void frmMain_SizeChanged(object sender, EventArgs e) {
+            if (this.WindowState == FormWindowState.Minimized) {
+                //notifyIcon1.Icon = SystemIcons.Application;
+                notifyIcon1.Icon = new System.Drawing.Icon(@"Image//icon.ico");
+                notifyIcon1.BalloonTipText = "My Application Minimized";
+                notifyIcon1.ShowBalloonTip(1000);
+            }
+            else if (this.WindowState == FormWindowState.Normal) {
+                notifyIcon1.BalloonTipText = "My Application Normal";
+                notifyIcon1.ShowBalloonTip(1000);
+            }
+
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e) {
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

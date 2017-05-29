@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnManager = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,7 @@
             this.btnCart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,6 +205,13 @@
             this.lbName.TabIndex = 6;
             this.lbName.Text = "Dương Vũ";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipTitle = "Bán sách";
+            this.notifyIcon1.Text = "Info";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -222,6 +231,7 @@
             this.Name = "frmMain";
             this.Text = "Hệ thống quản lý cửa hàng bán sách";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.SizeChanged += new System.EventHandler(this.frmMain_SizeChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -247,6 +257,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.ToolStripMenuItem mniReport;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

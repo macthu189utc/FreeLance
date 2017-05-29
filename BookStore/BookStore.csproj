@@ -255,6 +255,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg-book.jpg" />
+    <Content Include="Image\icon.ico" />
     <Content Include="Resources\[Freelance]_BanSach.sql" />
     <None Include="Resources\Natsu FolderOpen.ico" />
     <None Include="Resources\images.jpg" />
@@ -312,9 +313,7 @@
     <Content Include="Resources\image8.jpg" />
     <Content Include="Resources\image9.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Image\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
