@@ -24,16 +24,17 @@
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvBill = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnOrderIn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -47,6 +48,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách hoá đơn nhập";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::BookStore.Properties.Resources._32_user_search;
+            this.pictureBox1.Location = new System.Drawing.Point(276, 59);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // txtSearch
             // 
@@ -72,9 +84,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvDetail);
-            this.groupBox2.Location = new System.Drawing.Point(569, 12);
+            this.groupBox2.Location = new System.Drawing.Point(569, 101);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(558, 594);
+            this.groupBox2.Size = new System.Drawing.Size(558, 505);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết hoá đơn nhập";
@@ -88,24 +100,26 @@
             this.dgvDetail.Location = new System.Drawing.Point(9, 28);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
-            this.dgvDetail.Size = new System.Drawing.Size(540, 553);
+            this.dgvDetail.Size = new System.Drawing.Size(540, 466);
             this.dgvDetail.TabIndex = 0;
             // 
-            // pictureBox1
+            // btnOrderIn
             // 
-            this.pictureBox1.Image = global::BookStore.Properties.Resources._32_user_search;
-            this.pictureBox1.Location = new System.Drawing.Point(276, 59);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(29, 29);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.btnOrderIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrderIn.Image = global::BookStore.Properties.Resources._32_basket_full;
+            this.btnOrderIn.Location = new System.Drawing.Point(1068, 22);
+            this.btnOrderIn.Name = "btnOrderIn";
+            this.btnOrderIn.Size = new System.Drawing.Size(50, 51);
+            this.btnOrderIn.TabIndex = 4;
+            this.btnOrderIn.UseVisualStyleBackColor = true;
+            this.btnOrderIn.Click += new System.EventHandler(this.btnOrderIn_Click);
             // 
             // frmBillOrderIn
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1139, 618);
+            this.Controls.Add(this.btnOrderIn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -115,10 +129,10 @@
             this.Load += new System.EventHandler(this.frmBillOrderIn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -131,5 +145,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvDetail;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnOrderIn;
     }
 }

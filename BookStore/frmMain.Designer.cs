@@ -31,6 +31,7 @@
             this.mnPublisher = new System.Windows.Forms.ToolStripMenuItem();
             this.mnStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniReport = new System.Windows.Forms.ToolStripMenuItem();
             this.mnSale = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnBillOrderOut = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,8 @@
             this.mnCategory,
             this.mnPublisher,
             this.mnStaff,
-            this.mnProvider});
+            this.mnProvider,
+            this.mniReport});
             this.mnManager.Image = global::BookStore.Properties.Resources._32_user_starred;
             this.mnManager.Name = "mnManager";
             this.mnManager.Size = new System.Drawing.Size(76, 20);
@@ -73,7 +75,7 @@
             // 
             this.mnProduct.Image = global::BookStore.Properties.Resources._32_basket_full;
             this.mnProduct.Name = "mnProduct";
-            this.mnProduct.Size = new System.Drawing.Size(148, 22);
+            this.mnProduct.Size = new System.Drawing.Size(171, 22);
             this.mnProduct.Text = "Sản phẩm";
             this.mnProduct.Click += new System.EventHandler(this.mnProduct_Click);
             // 
@@ -81,7 +83,7 @@
             // 
             this.mnCategory.Image = global::BookStore.Properties.Resources._32_folder_tag;
             this.mnCategory.Name = "mnCategory";
-            this.mnCategory.Size = new System.Drawing.Size(148, 22);
+            this.mnCategory.Size = new System.Drawing.Size(171, 22);
             this.mnCategory.Text = "Danh mục";
             this.mnCategory.Click += new System.EventHandler(this.mnCategory_Click);
             // 
@@ -89,7 +91,7 @@
             // 
             this.mnPublisher.Image = global::BookStore.Properties.Resources._32_user_starred1;
             this.mnPublisher.Name = "mnPublisher";
-            this.mnPublisher.Size = new System.Drawing.Size(148, 22);
+            this.mnPublisher.Size = new System.Drawing.Size(171, 22);
             this.mnPublisher.Text = "Nhà xuất bản";
             this.mnPublisher.Click += new System.EventHandler(this.mnPublisher_Click);
             // 
@@ -97,7 +99,7 @@
             // 
             this.mnStaff.Image = global::BookStore.Properties.Resources._32_user_favourite;
             this.mnStaff.Name = "mnStaff";
-            this.mnStaff.Size = new System.Drawing.Size(148, 22);
+            this.mnStaff.Size = new System.Drawing.Size(171, 22);
             this.mnStaff.Text = "Nhân viên";
             this.mnStaff.Click += new System.EventHandler(this.mnStaff_Click);
             // 
@@ -105,9 +107,16 @@
             // 
             this.mnProvider.Image = global::BookStore.Properties.Resources._32_user_unstarred;
             this.mnProvider.Name = "mnProvider";
-            this.mnProvider.Size = new System.Drawing.Size(148, 22);
+            this.mnProvider.Size = new System.Drawing.Size(171, 22);
             this.mnProvider.Text = "Nhà cung cấp";
             this.mnProvider.Click += new System.EventHandler(this.mnProvider_Click);
+            // 
+            // mniReport
+            // 
+            this.mniReport.Name = "mniReport";
+            this.mniReport.Size = new System.Drawing.Size(171, 22);
+            this.mniReport.Text = "Báo cáo sản phẩm";
+            this.mniReport.Click += new System.EventHandler(this.mniReport_Click);
             // 
             // mnSale
             // 
@@ -156,6 +165,7 @@
             // 
             this.mnLogout.Image = global::BookStore.Properties.Resources._32_arrow_refresh;
             this.mnLogout.Name = "mnLogout";
+            this.mnLogout.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.mnLogout.Size = new System.Drawing.Size(88, 20);
             this.mnLogout.Text = "Đăng xuất";
             this.mnLogout.Click += new System.EventHandler(this.mnLogout_Click);
@@ -176,7 +186,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(376, 46);
+            this.label1.Location = new System.Drawing.Point(48, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 31);
             this.label1.TabIndex = 5;
@@ -187,7 +197,7 @@
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Rockwell", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ForeColor = System.Drawing.Color.Snow;
-            this.lbName.Location = new System.Drawing.Point(528, 46);
+            this.lbName.Location = new System.Drawing.Point(200, 54);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(137, 31);
             this.lbName.TabIndex = 6;
@@ -198,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::BookStore.Properties.Resources.best_books_2015_wide_18ea71bcef7792d9fd6ea5183846999a06b17eee;
+            this.BackgroundImage = global::BookStore.Properties.Resources.bg_book;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1341, 680);
             this.Controls.Add(this.lbName);
@@ -236,6 +246,7 @@
         private System.Windows.Forms.Button btnCart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.ToolStripMenuItem mniReport;
     }
 }
 

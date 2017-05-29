@@ -65,12 +65,11 @@ namespace BookStore {
                 }
 
                 lbError.Visible = false;
-                //this.AcceptButton = btnLogin;
                 this.Hide();
                 int role = int.Parse(data.Rows[0]["MABOPHAN"].ToString());
-                frmMain fMain = new frmMain();
                 DBConnect.BOPHAN = role;
                 DBConnect.TENNHANVIEN = data.Rows[0]["TENNHANVIEN"].ToString();
+                frmMain fMain = new frmMain();
                 fMain.ShowDialog();
                 this.Close();
             }

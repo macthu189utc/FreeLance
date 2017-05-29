@@ -182,26 +182,15 @@ namespace BookStore.Admin {
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
-            if (input == 1) {
-                Empty();
-                txtNum.Enabled = true;
-                Enable();
-                btnSaveAdd.Enabled = true;
-                btnEdit.Enabled = false;
-                btnDelete.Enabled = false;
-            }
-            else {
-                Empty();
-                Enable();
-                btnSaveAdd.Enabled = true;
-                btnEdit.Enabled = false;
-                btnDelete.Enabled = false;
-
-            }
+            Empty();
+            Enable();
+            btnSaveAdd.Enabled = true;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
         private void btnSaveAdd_Click(object sender, EventArgs e) {
-            if (txtName.Text == "" || txtNum.Text == "" || rtbDescription.Text == "" || txtPriceIn.Text == "") {
+            if (txtName.Text == "" || rtbDescription.Text == "" || txtPriceIn.Text == "") {
                 MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -247,7 +236,7 @@ namespace BookStore.Admin {
         }
 
         private void btnSaveEdit_Click(object sender, EventArgs e) {
-            if (txtName.Text == "" || txtNum.Text == "" || rtbDescription.Text == "" || txtPriceIn.Text == "") {
+            if (txtName.Text == "" || rtbDescription.Text == "" || txtPriceIn.Text == "") {
                 MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }

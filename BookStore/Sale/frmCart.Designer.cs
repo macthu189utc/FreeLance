@@ -44,6 +44,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.ptbAddCustomer = new System.Windows.Forms.PictureBox();
+            this.numericSoluong = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbBook)).BeginInit();
@@ -52,10 +54,13 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAddCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSoluong)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.numericSoluong);
             this.groupBox1.Controls.Add(this.dgvData);
             this.groupBox1.Controls.Add(this.ptbBook);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -302,6 +307,22 @@
             this.ptbAddCustomer.TabStop = false;
             this.ptbAddCustomer.Click += new System.EventHandler(this.ptbAddCustomer_Click);
             // 
+            // numericSoluong
+            // 
+            this.numericSoluong.Location = new System.Drawing.Point(139, 173);
+            this.numericSoluong.Name = "numericSoluong";
+            this.numericSoluong.Size = new System.Drawing.Size(120, 29);
+            this.numericSoluong.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(50, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 21);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Số lượng";
+            // 
             // frmCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -326,6 +347,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAddCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSoluong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,5 +374,7 @@
         private System.Windows.Forms.PictureBox ptbAddCustomer;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown numericSoluong;
     }
 }

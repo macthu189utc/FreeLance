@@ -1,5 +1,6 @@
 ﻿using BookStore.Admin;
 using BookStore.Data;
+using BookStore.Report;
 using BookStore.Sale;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace BookStore {
             if (DBConnect.BOPHAN == DBConnect.BANHANG) {
                 mnManager.Enabled = false;
             }
+
             lbName.Text = DBConnect.TENNHANVIEN;
         }
 
@@ -72,12 +74,13 @@ namespace BookStore {
             this.Hide();
             frmLogin fl = new frmLogin();
             fl.ShowDialog();
-            this.Show();
         }
 
         private void mnBillOrderIn_Click(object sender, EventArgs e) {
+            this.Hide();
             frmBillOrderIn fbi = new frmBillOrderIn();
             fbi.ShowDialog();
+            this.Show();
         }
 
         private void frmMain_Load(object sender, EventArgs e) {
@@ -85,8 +88,15 @@ namespace BookStore {
         }
 
         private void btnCart_Click(object sender, EventArgs e) {
+            this.Hide();
             frmCart fc = new frmCart();
             fc.ShowDialog();
+            this.Show();
+        }
+
+        private void mniReport_Click(object sender, EventArgs e) {
+            frmReport fReport = new frmReport();
+            fReport.ShowDialog();
         }
     }
 }

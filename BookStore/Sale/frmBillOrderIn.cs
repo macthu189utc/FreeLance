@@ -82,5 +82,12 @@ namespace BookStore.Sale {
             //Chế độ chọn theo hàng
             dgvBill.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
+        private void btnOrderIn_Click(object sender, EventArgs e) {
+            this.Hide();
+            frmOrderIn fo = new frmOrderIn();
+            fo.ShowDialog();
+            this.Show();
+        }
     }
 }

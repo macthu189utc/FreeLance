@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BOOKSTOREConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BOOKSTOREConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BookStore.Properties.Settings.GlobalReference.Default.BOOKSTOREConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SACHTableAdapter" GeneratorDataComponentClassName="SACHTableAdapter" Name="SACH" UserDataComponentName="SACHTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BOOKSTOREConnectionString (Settings)" DbObjectName="BANSACH.dbo.SACH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select s.MASACH, s.TENSACH, sum(c.SOLUONG) as 'SOLUONGNHAP', sum(cx.SOLUONG) as 'SOLUONGXUAT'
+from sach s inner join CHITIETHOADONNHAP c
+on s.MASACH = c.MASACH
+inner join CHITIETHOADONXUAT cx
+on s.MASACH = cx.MASACH
+group by s.MASACH, s.TENSACH</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MASACH" DataSetColumn="MASACH" />
+              <Mapping SourceColumn="TENSACH" DataSetColumn="TENSACH" />
+              <Mapping SourceColumn="SOLUONGNHAP" DataSetColumn="SOLUONGNHAP" />
+              <Mapping SourceColumn="SOLUONGXUAT" DataSetColumn="SOLUONGXUAT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SACH" msprop:Generator_TableClassName="SACHDataTable" msprop:Generator_TableVarName="tableSACH" msprop:Generator_RowChangedName="SACHRowChanged" msprop:Generator_TablePropName="SACH" msprop:Generator_RowDeletingName="SACHRowDeleting" msprop:Generator_RowChangingName="SACHRowChanging" msprop:Generator_RowEvHandlerName="SACHRowChangeEventHandler" msprop:Generator_RowDeletedName="SACHRowDeleted" msprop:Generator_RowClassName="SACHRow" msprop:Generator_UserTableName="SACH" msprop:Generator_RowEvArgName="SACHRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MASACH" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMASACH" msprop:Generator_ColumnPropNameInRow="MASACH" msprop:Generator_ColumnPropNameInTable="MASACHColumn" msprop:Generator_UserColumnName="MASACH" type="xs:long" />
+              <xs:element name="TENSACH" msprop:Generator_ColumnVarNameInTable="columnTENSACH" msprop:Generator_ColumnPropNameInRow="TENSACH" msprop:Generator_ColumnPropNameInTable="TENSACHColumn" msprop:Generator_UserColumnName="TENSACH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SOLUONGNHAP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSOLUONGNHAP" msprop:Generator_ColumnPropNameInRow="SOLUONGNHAP" msprop:Generator_ColumnPropNameInTable="SOLUONGNHAPColumn" msprop:Generator_UserColumnName="SOLUONGNHAP" type="xs:int" minOccurs="0" />
+              <xs:element name="SOLUONGXUAT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSOLUONGXUAT" msprop:Generator_ColumnPropNameInRow="SOLUONGXUAT" msprop:Generator_ColumnPropNameInTable="SOLUONGXUATColumn" msprop:Generator_UserColumnName="SOLUONGXUAT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SACH" />
+      <xs:field xpath="mstns:MASACH" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

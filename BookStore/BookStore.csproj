@@ -91,11 +91,6 @@
     <Compile Include="Admin\frmStaff.Designer.cs">
       <DependentUpon>frmStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="BANSACHDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BANSACHDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ComboBoxItem.cs" />
     <Compile Include="Data\DBConnect.cs" />
     <Compile Include="frmAbout.cs">
@@ -130,11 +125,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Report\frmReportStaff.cs">
+    <Compile Include="Report\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report\frmReportStaff.Designer.cs">
-      <DependentUpon>frmReportStaff.cs</DependentUpon>
+    <Compile Include="Report\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Sale\frmBillOrderIn.cs">
       <SubType>Form</SubType>
@@ -204,10 +204,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportBook.rdlc" />
-    <EmbeddedResource Include="Report\frmReportStaff.resx">
-      <DependentUpon>frmReportStaff.cs</DependentUpon>
+    <EmbeddedResource Include="Report\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report1.rdlc" />
     <EmbeddedResource Include="Sale\frmBillOrderIn.resx">
       <DependentUpon>frmBillOrderIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,17 +223,6 @@
     <EmbeddedResource Include="Sale\frmOrderIn.resx">
       <DependentUpon>frmOrderIn.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BANSACHDataSet.xsc">
-      <DependentUpon>BANSACHDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BANSACHDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BANSACHDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BANSACHDataSet.xss">
-      <DependentUpon>BANSACHDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -248,12 +237,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Report\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bg-book.jpg" />
     <Content Include="Resources\[Freelance]_BanSach.sql" />
     <None Include="Resources\Natsu FolderOpen.ico" />
     <None Include="Resources\images.jpg" />

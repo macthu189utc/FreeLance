@@ -134,23 +134,42 @@ namespace BookStore.Sale {
             if (index < 0)
                 MessageBox.Show("Vui lòng chọn sản phẩm cần thêm");
             int numInventory = int.Parse(myTable.Rows[index]["SOLUONGTON"].ToString());
-            int numAdd = 1;
-            if (numAdd > numInventory) {
+            int numAdd = (int) numericSoluong.Value;
+            if (numAdd > numInventory || numAdd == 0) {
                 MessageBox.Show("Số lượng không hợp lệ");
                 return;
             }
 
-            // Tinh so luong con lai
             int numAfterInput = numInventory - numAdd;
             myTable.Rows[index]["SOLUONGTON"] = numAfterInput;
 
-            // Lấy dữ liệu bên bảng sản phẩm, tính toán và đưa sang bảng hóa đơn
             string name = myTable.Rows[index]["TENSACH"].ToString();
             int price = int.Parse(myTable.Rows[index]["DONGIABAN"].ToString());
             string id = myTable.Rows[index]["MASACH"].ToString();
-            int sumMoney = price * numAdd;
-            myTableOrder.Rows.Add(name, price, numAdd, sumMoney, id);
 
+            // Kiểm tra xem bảng hóa đơn đã có chưa.
+            // --> Có = cộng dồn,
+            // --> Chưa có thì thêm mới
+            int id2 = -1;
+            for (int i = 0; i < myTableOrder.Rows.Count; i++) {
+                string mas = myTableOrder.Rows[i][4].ToString();
+                if (id.Equals(mas)) {
+                    id2 = i;
+                    break;
+                }
+            }
+            if(id2 != -1) {
+                int dongia = int.Parse(myTableOrder.Rows[id2][1].ToString());
+                int sl = int.Parse(myTableOrder.Rows[id2][2].ToString());
+                myTableOrder.Rows[id2][2] = sl + numAdd;
+                myTableOrder.Rows[id2][3] = (sl + numAdd) * dongia;
+
+            }
+            else {
+                int sumMoney = price * numAdd;
+                myTableOrder.Rows.Add(name, price, numAdd, sumMoney, id);
+            }
+            
             Money();
         }
 
